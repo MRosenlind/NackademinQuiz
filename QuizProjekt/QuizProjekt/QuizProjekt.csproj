@@ -79,6 +79,9 @@
     <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\TestContext.cs" />
+    <Compile Include="Services\AlternativeService.cs" />
+    <Compile Include="Services\QuestionService.cs" />
+    <Compile Include="Services\TestService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
