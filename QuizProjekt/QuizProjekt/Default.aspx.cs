@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuizProjekt.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace QuizProjekt
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var x = new TestContext().Questions.ToList();
         }
     }
 }
