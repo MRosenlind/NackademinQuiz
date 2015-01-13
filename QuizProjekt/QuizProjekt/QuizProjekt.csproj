@@ -74,8 +74,8 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Alternatives.cs" />
-    <Compile Include="Models\Questions.cs" />
+    <Compile Include="Models\Alternative.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
