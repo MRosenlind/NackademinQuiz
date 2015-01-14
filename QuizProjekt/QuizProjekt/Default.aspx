@@ -1,16 +1,19 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="QuizProjekt.Default" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="QuizProjekt.Default" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Repeater ID="RestaurantList" runat="server">
+        <ItemTemplate>
+            <div>
+                <br />
+                <div><a href="DoQuiz.aspx?id=<%#Eval("Id") %>"><%#Eval("Name") %> 
+                     </a>
+                </div>
+                    <br />
+                    <div><%#Eval("Description") %></div>
+                <br />
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+       
+</asp:Content>
