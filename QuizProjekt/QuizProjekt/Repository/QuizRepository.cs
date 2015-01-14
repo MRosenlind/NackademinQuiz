@@ -31,6 +31,17 @@ namespace QuizProjekt.Repository
             }
             return result;
         }
+        public bool AddQuiz(Test quiz)
+        {
+            var query = "INSERT INTO Tests VALUES (@Id, @Name, @Description)";
+            var parameters = new SqlParameter[]
+            {
+                new SqlParameter("@RestaurantId", quiz.Id),
+                new SqlParameter("@Name", quiz.Name),
+                new SqlParameter("@Description", quiz.Description),
+            };
+            return SqlUtility.RunUpdate(query, parameters) == 1;
+        }
 
     }
 }
