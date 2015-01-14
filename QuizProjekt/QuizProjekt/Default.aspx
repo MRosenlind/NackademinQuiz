@@ -9,7 +9,6 @@
                 <div><a href="DoQuiz.aspx?id=<%#Eval("Id") %>"><%#Eval("Name") %> 
                      </a>
                 </div>
-                    <br />
                     <div><%#Eval("Description") %></div>
                 <br />
             </div>
