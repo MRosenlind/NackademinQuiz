@@ -63,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AddQuestion.aspx" />
     <Content Include="Admin\CreateQuiz.aspx" />
     <Content Include="CSS\Style.css" />
     <Content Include="Default.aspx" />
@@ -71,6 +72,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddQuestion.aspx.cs">
+      <DependentUpon>AddQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddQuestion.aspx.designer.cs">
+      <DependentUpon>AddQuestion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\CreateQuiz.aspx.cs">
       <DependentUpon>CreateQuiz.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
