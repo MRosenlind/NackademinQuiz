@@ -24,7 +24,7 @@ namespace QuizProjekt.Admin
             quiz.Description = txtDescription.Text;
             //quiz.Id = int.Parse(Request.QueryString["Id"]);
 
-            var success = new QuizRepository().AddQuiz(quiz);
+            new QuizRepository().AddQuiz(quiz);
             Response.Redirect("AddQuestion.aspx");
         }
     }

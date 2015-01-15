@@ -9,39 +9,28 @@ namespace QuizProjekt.Repository
 {
     public class QuizRepository
     {
-        public List<Test> GetAllQuizes(string name = "")
+        public List<Test> GetAllQuizes()
         {
-            var query = "SELECT * FROM Tests WHERE Name LIKE @Name";
-
-            var parameters = new List<SqlParameter>() { new SqlParameter("@Name", "%" + name + "%") };
-
-            var result = new List<Test>();
-            using (var reader = SqlUtility.RunQuery(query, parameters))
-            {
-                while (reader.Read())
-                {
-                    result.Add(new Test
-                    {
-                        Id = reader.GetInt32(0),
-                        Name = reader.SafeGetString(1),
-                        Description = reader.SafeGetString(2),
-                        
-                    });
-                }
-            }
-            return result;
+            var context = new TestContext();
+            return context.Tests.ToList();
+            
         }
-        public bool AddQuiz(Test quiz)
+        public void AddQuiz(Test quiz)
         {
-            var query = "INSERT INTO Tests VALUES ( @Name, @Description, @Public)";
-            var parameters = new SqlParameter[]
+            var context = new TestContext();
+            context.Tests.Add(quiz);
+            context.SaveChanges();
+        }
+        public void AddQuestion(Question question, int testId)
+        {
+            var context = new TestContext();
+            var test = context.Tests.FirstOrDefault(x => x.Id == testId);
+            if (test!= null)
             {
-                //new SqlParameter("@Id", quiz.Id),
-                new SqlParameter("@Name", quiz.Name),
-                new SqlParameter("@Description", quiz.Description),
-                new SqlParameter("@Public", quiz.Public)
-            };
-            return SqlUtility.RunUpdate(query, parameters) == 1;
+                test.Questions.Add(question);
+                context.SaveChanges();
+            }
+
         }
 
     }
