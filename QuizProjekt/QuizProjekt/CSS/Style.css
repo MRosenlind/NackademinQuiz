@@ -1,2 +1,20 @@
 ﻿body {
+    background-color: yellow;
+}
+#QuizDiv{
+    background-color: whitesmoke;
+    width: 10%;
+    text-align:center;
+    margin-left: 50%;
+    
+}
+#ListQuiz{
+    padding-left: 5px;
+    
+}
+#h1{
+    margin-left: 50%;
+    font-family:'Comic Sans MS';
+    font-size: 40px;
+    padding-bottom: 5px;
 }
