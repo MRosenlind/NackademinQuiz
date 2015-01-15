@@ -15,5 +15,10 @@ namespace QuizProjekt
             QuizList.DataSource = new QuizRepository().GetAllQuizes();
             QuizList.DataBind();
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin/CreateQuiz.aspx");
+        }
     }
 }

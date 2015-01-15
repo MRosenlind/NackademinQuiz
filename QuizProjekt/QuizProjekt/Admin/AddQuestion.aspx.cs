@@ -27,7 +27,7 @@ namespace QuizProjekt.Admin
             new QuizRepository().AddQuestion(question, int.Parse( DropDownList1.SelectedValue));
 
             
-            Response.Redirect("AddQuestion.aspx");
+            Response.Redirect("AddAlternative.aspx");
         }
     }
 }

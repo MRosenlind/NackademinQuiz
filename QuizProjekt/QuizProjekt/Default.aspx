@@ -14,5 +14,11 @@
             </div>
         </ItemTemplate>
     </asp:Repeater>
+    <br />
+    <div>
+
+        <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Log In" />
+
+    </div>
        
 </asp:Content>

@@ -32,6 +32,16 @@ namespace QuizProjekt.Repository
             }
 
         }
+        public void AddAlternative(Alternative alternative, int questionsId)
+        {
+            var context = new TestContext();
+            var question = context.Questions.FirstOrDefault(x => x.Id == questionsId);
+            if (question != null)
+            {
+                question.Alternatives.Add(alternative);
+                context.SaveChanges();
+            }
+        }
 
     }
 }
