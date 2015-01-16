@@ -19,7 +19,7 @@
     <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
     <br />
     <br />
-    <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Skapa" />
+    <asp:Button ID="btnSubmit" runat="server"  OnClick="btnSubmit_Click" Text="Skapa" />
     <br />
     <br />
     <asp:Label ID="Label4" runat="server" Font-Size="Larger" Text="Redigera quiz"></asp:Label>
