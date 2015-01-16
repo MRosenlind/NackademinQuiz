@@ -66,6 +66,7 @@
     <Content Include="Admin\AddAlternative.aspx" />
     <Content Include="Admin\AddQuestion.aspx" />
     <Content Include="Admin\CreateQuiz.aspx" />
+    <Content Include="Admin\EditQuiz.aspx" />
     <Content Include="CSS\Style.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -93,6 +94,13 @@
     </Compile>
     <Compile Include="Admin\CreateQuiz.aspx.designer.cs">
       <DependentUpon>CreateQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditQuiz.aspx.cs">
+      <DependentUpon>EditQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditQuiz.aspx.designer.cs">
+      <DependentUpon>EditQuiz.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

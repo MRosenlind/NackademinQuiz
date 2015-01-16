@@ -22,10 +22,16 @@ namespace QuizProjekt.Admin
 
             quiz.Name = txtName.Text;
             quiz.Description = txtDescription.Text;
-            //quiz.Id = int.Parse(Request.QueryString["Id"]);
-
+           
             new QuizRepository().AddQuiz(quiz);
             Response.Redirect("AddQuestion.aspx");
         }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+           // DdlQuizList.SelectedValue
+            Response.Redirect("EditQuiz.aspx");
+        }
+
     }
 }

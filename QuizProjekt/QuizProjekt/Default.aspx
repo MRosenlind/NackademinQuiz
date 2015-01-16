@@ -13,7 +13,7 @@
                     <br />
                     <%#Eval("Description") %>
                     </div>
-                <br />
+                
             </div>
         </ItemTemplate>
     </asp:Repeater>
