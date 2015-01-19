@@ -13,6 +13,17 @@
         <asp:Button ID="btnLogin" runat="server"  OnClick="btnLogin_Click" Text="Logga In" />
     </div>
     
+    <div id="quiz-list">
+        <ul>
+            <li>En quiz <a href="#1">Starta</a></li>
+            <li>En annan <a href="#2">Starta</a></li>
+            <li>Fula frågor <a href="#3">Starta</a></li>
+        </ul>
+    </div>
+    
+    
+
+    
     <asp:Repeater ID="QuizList" runat="server">
         <ItemTemplate>
             

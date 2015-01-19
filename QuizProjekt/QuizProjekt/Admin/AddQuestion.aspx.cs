@@ -20,6 +20,17 @@ namespace QuizProjekt.Admin
         {
             var question = new Question();
 
+            //var createQuestion = new Question();
+            //createQuestion.QuestionNumber = Convert.ToInt32(txtQuestionNumber.Text);
+            //createQuestion.QuestionText = taQuestionText.InnerText.ToString();
+            //new TestRepository().CreateQuestions(createQuestion, id);
+            ////var makeQuestion = new TestRepository().CreateQuestions(createQuestion, id);
+
+            //if (createQuestion.Id > 0)
+            //{
+            //    Response.Redirect("~/ASPX/EditQuestion.aspx?id=" + createQuestion.Id);
+            //}
+
             question.Text = txtQuestion.Text;
             
            

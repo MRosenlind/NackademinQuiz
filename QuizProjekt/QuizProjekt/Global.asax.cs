@@ -1,4 +1,6 @@
-﻿using QuizProjekt.Models;
+﻿using System.Data.Entity;
+using QuizProjekt.Migrations;
+using QuizProjekt.Models;
 using QuizProjekt.Repository;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ namespace QuizProjekt
 
         protected void Application_Start(object sender, EventArgs e)
         {
-           
+           Database.SetInitializer(new MigrateDatabaseToLatestVersion<TestContext,Configuration>());
 
         }
 

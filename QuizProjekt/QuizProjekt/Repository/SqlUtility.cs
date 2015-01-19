@@ -7,6 +7,10 @@ using System.Web;
 
 namespace QuizProjekt.Repository
 {
+
+    /// <summary>
+    /// Jag behövs inte
+    /// </summary>
     public static class SqlUtility
     {
         public static SqlDataReader RunQuery(string query, IEnumerable<SqlParameter> parameters)
@@ -22,6 +26,12 @@ namespace QuizProjekt.Repository
 
             return command.ExecuteReader();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public static int RunUpdate(string query, IEnumerable<SqlParameter> parameters)
         {
             var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Test"].ConnectionString);
