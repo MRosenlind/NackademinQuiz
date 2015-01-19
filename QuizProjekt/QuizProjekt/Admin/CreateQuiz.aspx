@@ -2,6 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div id="header">
+      <div id="h1">
+        MM Quizes
+      </div> 
+        </div>
     <asp:Label ID="Label1" Font-Size="Larger" runat="server" Text="Skapa nytt quiz"></asp:Label>
    
     <br />

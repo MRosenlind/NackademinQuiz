@@ -3,7 +3,15 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="h1">MM Quizes</div>
+    <div id="header">
+      <div id="h1">
+        MM Quizes
+      </div>  
+        
+    </div>
+    <div id="meny">
+        <asp:Button ID="btnLogin" runat="server"  OnClick="btnLogin_Click" Text="Logga In" />
+    </div>
     <asp:Repeater ID="QuizList" runat="server">
         <ItemTemplate>
             
@@ -18,10 +26,6 @@
         </ItemTemplate>
     </asp:Repeater>
     <br />
-    <div>
-
-        <asp:Button ID="btnLogin" runat="server"  OnClick="btnLogin_Click" Text="Logga In" />
-
-    </div>
+    
        
 </asp:Content>
