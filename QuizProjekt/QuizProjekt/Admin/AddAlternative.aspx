@@ -6,7 +6,7 @@
         <asp:Label ID="Label1" runat="server" Text="Lägg till svarsalternativ:"></asp:Label>
         <br />
         <br />
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtAlternative" runat="server"></asp:TextBox>
         <asp:CheckBox ID="CheckBoxRattSvar" runat="server" Text="Rätt svar" />
         <br />
         <br />

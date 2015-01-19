@@ -12,6 +12,7 @@
     <div id="meny">
         <asp:Button ID="btnLogin" runat="server"  OnClick="btnLogin_Click" Text="Logga In" />
     </div>
+    
     <asp:Repeater ID="QuizList" runat="server">
         <ItemTemplate>
             
@@ -25,6 +26,7 @@
             </div>
         </ItemTemplate>
     </asp:Repeater>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
     <br />
     
        

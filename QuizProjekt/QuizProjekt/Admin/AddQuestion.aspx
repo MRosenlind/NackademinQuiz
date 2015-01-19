@@ -3,7 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-    
+    <div id="header">
+      <div id="h1">
+        MM Quizes
+      </div> 
+        </div>
     <p>
         &nbsp;<asp:Label ID="Label1" runat="server" Text="Lägg till frågor till quiz"></asp:Label>
         <br />
