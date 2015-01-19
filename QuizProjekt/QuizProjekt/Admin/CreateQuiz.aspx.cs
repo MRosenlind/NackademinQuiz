@@ -13,7 +13,7 @@ namespace QuizProjekt.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -29,7 +29,8 @@ namespace QuizProjekt.Admin
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-           // DdlQuizList.SelectedValue
+            //var a = DdlQuizList.SelectedValue;
+            
             Response.Redirect("EditQuiz.aspx");
         }
 
