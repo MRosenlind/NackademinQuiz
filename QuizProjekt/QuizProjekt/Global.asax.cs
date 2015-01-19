@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Diagnostics;
 using QuizProjekt.Migrations;
 using QuizProjekt.Models;
 using QuizProjekt.Repository;
@@ -16,7 +17,15 @@ namespace QuizProjekt
 
         protected void Application_Start(object sender, EventArgs e)
         {
-           Database.SetInitializer(new MigrateDatabaseToLatestVersion<TestContext,Configuration>());
+           //Database.SetInitializer(new MigrateDatabaseToLatestVersion<TestContext,QuizProjekt.Migrations.Configuration>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<TestContext>());
+           using (var ctx = new TestContext())
+           {
+               foreach (var test in ctx.Tests)
+               {
+                   Debug.Write(test.Name);
+               }
+           }
 
         }
 

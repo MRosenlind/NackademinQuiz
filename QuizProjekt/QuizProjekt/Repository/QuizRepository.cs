@@ -11,11 +11,12 @@ namespace QuizProjekt.Repository
     {
         public static List<Test> GetAllQuizes()
         {
+            List<Test> tests;
             using (var ctx = new TestContext())
             {
-                return ctx.Tests.ToList();
+                tests = ctx.Tests.ToList();
             }
-
+            return tests;
         }
         public static Test AddQuiz(string name, string description, bool isPublic = true)
         {

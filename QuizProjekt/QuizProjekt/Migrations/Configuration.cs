@@ -8,11 +8,11 @@ namespace QuizProjekt.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<QuizProjekt.Repository.TestContext>
+    public class Configuration : DbMigrationsConfiguration<QuizProjekt.Repository.TestContext>
     {
         public Configuration()
         {
-            QuizRepository.GetAllQuizes();
+            //QuizRepository.GetAllQuizes();
             AutomaticMigrationsEnabled = true;
             ContextKey = "QuizProjekt.Repository.TestContext";
         }
