@@ -11,11 +11,15 @@ namespace QuizProjekt.Services
 {
     public class QuestionService
     {
-        public Question GetQuestion(int id)
+        public Question GetNextQuestion(int testId, int questionId)
         {
             using (var context = new TestContext())
             {
-                return context.Questions.Include(x => x.Alternatives).FirstOrDefault( x => x.Id == id);
+                return context.Questions
+                    .Include(x => x.Alternatives)
+                    .Where(x => x.Test.Id == testId && x.Id > questionId)
+                    .OrderBy(x => x.Id)
+                    .FirstOrDefault();
             }
 
         }

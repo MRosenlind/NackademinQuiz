@@ -9,7 +9,7 @@ namespace QuizProjekt.Repository
 {
     public class QuizRepository
     {
-        public List<Test> GetAllQuizes()
+        public static List<Test> GetAllQuizes()
         {
             var context = new TestContext();
             return context.Tests.ToList();
@@ -21,7 +21,7 @@ namespace QuizProjekt.Repository
             context.Tests.Add(quiz);
             context.SaveChanges();
         }
-        public void AddQuestion(Question question, int testId)
+        public static void AddQuestion(Question question, int testId)
         {
             var context = new TestContext();
             var test = context.Tests.FirstOrDefault(x => x.Id == testId);

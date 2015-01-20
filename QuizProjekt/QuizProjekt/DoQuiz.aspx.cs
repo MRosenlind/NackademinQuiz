@@ -22,7 +22,7 @@ namespace QuizProjekt
             {
                 if (_questionId > 0)
                {
-                  var quiz = _service.GetQuestion(_questionId);
+                  var quiz = _service.GetNextQuestion(_questionId);
                    if (quiz != null)
                    {
                        lblQuestion.Text = quiz.Text;
