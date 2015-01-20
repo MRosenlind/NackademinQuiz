@@ -1,7 +1,4 @@
-﻿using QuizProjekt.Services;
-using QuizProjekt.Repository;
-using QuizProjekt.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,26 +9,27 @@ namespace QuizProjekt
 {
     public partial class DoQuiz : System.Web.UI.Page
     {
-        private int _questionId;
-        private QuestionService _service = new QuestionService();
+        //private int _movieId;
+        //private MovieService _service = new MovieService();
         protected void Page_Load(object sender, EventArgs e)
         {
-            _questionId = Request.QueryString["id"].ToInt();
+            //_movieId = Request.QueryString["id"].ToInt();
 
-            if (!Page.IsPostBack)
-            {
-                if (_questionId > 0)
-               {
-                  var quiz = _service.GetQuestion(_questionId);
-                   if (quiz != null)
-                   {
-                       lblQuestion.Text = quiz.Text;
+            //if (!Page.IsPostBack)
+            //{
+            //    if (_movieId > 0)
+            //    {
+            //        var movie = _service.GetMovie(_movieId);
+            //        if (movie != null)
+            //        {
+            //            txtTitle.Text = movie.Title;
             //            txtRelease.Text = movie.ReleaseYear.ToString();
 
-            //            
-                   }
-               }
-            }
+            //            GridView1.DataSource = movie.Actors;
+            //            GridView1.DataBind();
+            //        }
+            //    }
+            //}
         }
     }
 }

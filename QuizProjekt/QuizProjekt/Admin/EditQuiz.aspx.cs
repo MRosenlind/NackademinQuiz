@@ -16,7 +16,7 @@ namespace QuizProjekt.Admin
         private TestService _service = new TestService();
         protected void Page_Load(object sender, EventArgs e)
         {
-           _quizId = Request.QueryString["id"].ToInt();
+           // _quizId = Request.QueryString["id"].ToInt();
 
             if (!Page.IsPostBack)
             {
