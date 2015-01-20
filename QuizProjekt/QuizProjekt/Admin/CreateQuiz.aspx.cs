@@ -1,5 +1,6 @@
 ﻿using QuizProjekt.Models;
 using QuizProjekt.Repository;
+using QuizProjekt.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,13 +31,27 @@ namespace QuizProjekt.Admin
             QuizRepository.AddQuiz(quiz);
 
 
-            Response.Redirect("AddQuestion.aspx?id=" + quiz.Id);
+            Response.Redirect("AddQuestion.aspx?id=" + quiz.Id );
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-           // DdlQuizList.SelectedValue
-            Response.Redirect("EditQuiz.aspx");
+            //här kan det bli fel.... :/
+
+            // OBS!! nu finns det 2 st "GetTest", en i TestService och en i QuizRepository 
+            var qId = Request.QueryString["Id"];
+
+            var i = 0;
+
+            int.TryParse(qId, out i);
+            var test = new Test();
+            test.Name = DdlQuizList.SelectedValue;
+
+            QuizRepository.GetTest(i);
+
+            //DdlQuizList
+
+            Response.Redirect("EditQuiz.aspx?id=" + test.Id);
         }
 
     }

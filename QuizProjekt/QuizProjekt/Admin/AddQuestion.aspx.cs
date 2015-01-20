@@ -27,16 +27,21 @@ namespace QuizProjekt.Admin
         //    if (i == 0) { }
         //}
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnQuestSubmit_Click(object sender, EventArgs e)
         {
+            var qId = Request.QueryString["Id"];
 
-            
-           
-            // TODO: gör int.TryParse på dropdownlistans värde
-            //QuizRepository.AddQuestion(txtQuestion.Text, int.Parse( DropDownList1.SelectedValue));
+            var i = 0;
 
+            int.TryParse(qId, out i);
+            var question = new Question();
+            question.Text = txtQuestion.Text;
             
-            Response.Redirect("AddAlternative.aspx");
+            QuizRepository.AddQuestion(question, i);
+
+
+            Response.Redirect("AddAlternative.aspx?id=" + question.Id);
+            
         }
     }
 }

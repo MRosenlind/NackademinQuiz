@@ -35,6 +35,14 @@ namespace QuizProjekt.Repository
             }
 
         }
+        public static Test GetTest(int id)
+        {
+            using (var context = new TestContext())
+            {
+                return context.Tests.FirstOrDefault(x => x.Id == id);
+
+            }
+        }
 
     }
 }
