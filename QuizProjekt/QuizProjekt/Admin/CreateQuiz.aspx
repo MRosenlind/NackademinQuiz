@@ -34,7 +34,7 @@
     </asp:DropDownList>
     <br />
     <br />
-    <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Redigera" />
+    <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click"  Text="Redigera" />
     <br />
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Test %>" SelectCommand="SELECT [Id], [Name] FROM [Tests]"></asp:SqlDataSource>
 </asp:Content>

@@ -18,7 +18,7 @@ namespace QuizProjekt.Repository
             
             
         }
-        public void AddQuiz(Test quiz)
+        public static void AddQuiz(Test quiz)
         {
             var context = new TestContext();
             context.Tests.Add(quiz);
