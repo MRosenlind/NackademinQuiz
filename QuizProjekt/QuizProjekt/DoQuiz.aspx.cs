@@ -12,30 +12,26 @@ namespace QuizProjekt
 {
     public partial class DoQuiz : System.Web.UI.Page
     {
-        private int _testId;
+        private int _questionId;
         private QuestionService _service = new QuestionService();
         protected void Page_Load(object sender, EventArgs e)
         {
-            _testId = Request.QueryString["Id"].ToInt();
+            _questionId = Request.QueryString["id"].ToInt();
 
             if (!Page.IsPostBack)
             {
-                if (_testId > 0)
+                if (_questionId > 0)
                {
-                  var quiz = _service.GetNextQuestion(_testId, 0);
-                  
+                  var quiz = _service.GetQuestion(_questionId);
                    if (quiz != null)
                    {
-
                        lblQuestion.Text = quiz.Text;
+            //            txtRelease.Text = movie.ReleaseYear.ToString();
+
+            //            
                    }
                }
             }
-        }
-
-        protected void btnNextQuestion_Click(object sender, EventArgs e)
-        {
-          
         }
     }
 }
