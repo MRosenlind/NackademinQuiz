@@ -7,5 +7,9 @@ namespace QuizProjekt.Services
 {
     public class QuestionService
     {
+        public void GetNextQuestion()
+        {
+
+        }
     }
 }
