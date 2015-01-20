@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using System.Diagnostics;
-using QuizProjekt.Migrations;
 using QuizProjekt.Models;
 using QuizProjekt.Repository;
 using System;

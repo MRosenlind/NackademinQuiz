@@ -11,8 +11,11 @@ namespace QuizProjekt.Repository
     {
         public static List<Test> GetAllQuizes()
         {
-            var context = new TestContext();
-            return context.Tests.ToList();
+            using (var context = new TestContext()) 
+            {
+                return context.Tests.ToList(); 
+            }
+            
             
         }
         public void AddQuiz(Test quiz)

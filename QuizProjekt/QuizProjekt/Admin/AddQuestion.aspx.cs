@@ -16,16 +16,16 @@ namespace QuizProjekt.Admin
 
         }
 
-        protected void CheckForQuizParameter()
-        {
-            var qid = Request.QueryString["qid"];
+        //protected void CheckForQuizParameter()
+        //{
+        //    var qid = Request.QueryString["qid"];
 
-            var i = 0;
+        //    var i = 0;
 
-            int.TryParse(qid, out i);
+        //    int.TryParse(qid, out i);
 
-            if (i == 0) { }
-        }
+        //    if (i == 0) { }
+        //}
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -33,7 +33,7 @@ namespace QuizProjekt.Admin
             
            
             // TODO: gör int.TryParse på dropdownlistans värde
-            QuizRepository.AddQuestion(txtQuestion.Text, int.Parse( DropDownList1.SelectedValue));
+            //QuizRepository.AddQuestion(txtQuestion.Text, int.Parse( DropDownList1.SelectedValue));
 
             
             Response.Redirect("AddAlternative.aspx");

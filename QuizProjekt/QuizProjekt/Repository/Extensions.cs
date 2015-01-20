@@ -5,7 +5,7 @@ using System.Web;
 
 namespace QuizProjekt.Repository
 {
-    public class Extensions
+    public static class Extensions
     {
         public static int ToInt(this string s, int defaultValue = 0)
         {

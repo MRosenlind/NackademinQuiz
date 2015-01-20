@@ -16,10 +16,15 @@ namespace QuizProjekt.Services
             using (var context = new TestContext())
             {
                 return context.Questions
-                    .Include(x => x.Alternatives)
                     .Where(x => x.Test.Id == testId && x.Id > questionId)
                     .OrderBy(x => x.Id)
                     .FirstOrDefault();
+
+                //return context.Questions
+                //    .Include(x => x.Alternatives)
+                //    .Where(x => x.Test.Id == testId && x.Id > questionId)
+                //    .OrderBy(x => x.Id)
+                //    .FirstOrDefault();
             }
 
         }
