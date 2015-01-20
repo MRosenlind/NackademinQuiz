@@ -7,39 +7,79 @@ using System.Web;
 
 namespace QuizProjekt.Repository
 {
-    public class QuizRepository
+    public static class QuizRepository
     {
-        public List<Test> GetAllQuizes()
+        public static List<Test> GetAllQuizes()
         {
-            var context = new TestContext();
-            return context.Tests.ToList();
-            
-        }
-        public void AddQuiz(Test quiz)
-        {
-            var context = new TestContext();
-            context.Tests.Add(quiz);
-            context.SaveChanges();
-        }
-        public void AddQuestion(Question question, int testId)
-        {
-            var context = new TestContext();
-            var test = context.Tests.FirstOrDefault(x => x.Id == testId);
-            if (test!= null)
+            List<Test> tests;
+            using (var ctx = new TestContext())
             {
-                test.Questions.Add(question);
-                context.SaveChanges();
+                tests = ctx.Tests.ToList();
             }
-
+            return tests;
         }
-        public void AddAlternative(Alternative alternative, int questionsId)
+        public static Test AddQuiz(string name, string description, bool isPublic = true)
         {
-            var context = new TestContext();
-            var question = context.Questions.FirstOrDefault(x => x.Id == questionsId);
-            if (question != null)
+            var test = new Test
             {
-                question.Alternatives.Add(alternative);
-                context.SaveChanges();
+                Name = name,
+                Description = description,
+                Public = isPublic,
+                Questions = new List<Question>()
+            };
+
+            using (var ctx = new TestContext())
+            {
+                ctx.Tests.Add(test);
+                ctx.SaveChanges();
+
+                return test;
+            }
+        }
+        public static Question AddQuestion(string text, int testId)
+        {
+            var question = new Question
+            {
+                Text = text,
+                Alternatives = new List<Alternative>()
+            };
+
+            using (var ctx = new TestContext())
+            {
+                var theTest = ctx.Tests.FirstOrDefault(t => t.Id == testId);
+                if (theTest == null) return null;
+
+                theTest.Questions.Add(question);
+                ctx.SaveChanges();
+
+                return question;
+
+            }
+        }
+        public static Alternative AddAlternative(string text, int questionsId, bool correct = false)
+        {
+            // Skapa ett alternativ
+            var alternative = new Alternative
+            {
+                Text = text,
+                Correct = correct
+            };
+
+            // Ta fram fråga och lägg till alternativet i databasen.
+            using (var ctx = new TestContext())
+            {
+                var question = ctx.Questions.FirstOrDefault(x => x.Id == questionsId);
+                if (question != null)
+                {
+                    //alternative.Question = question;
+                    question.Alternatives.Add(alternative);
+
+                    // Genomför ändringarna i databasen
+                    ctx.SaveChanges();
+
+                    return alternative;
+                }
+                return null;
             }
         }
 

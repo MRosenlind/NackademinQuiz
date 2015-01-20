@@ -18,13 +18,14 @@ namespace QuizProjekt.Admin
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            var quiz = new Test();
 
-            quiz.Name = txtName.Text;
-            quiz.Description = txtDescription.Text;
-           
-            new QuizRepository().AddQuiz(quiz);
-            Response.Redirect("AddQuestion.aspx");
+            //var qid = Request.QueryString["qid"];
+
+            //var i = 0;
+
+            //int.TryParse(qid, out i);
+            var quiz = QuizRepository.AddQuiz(txtName.Text, txtDescription.Text);
+            Response.Redirect("AddQuestion.aspx?qid="+quiz.Id);
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)

@@ -12,7 +12,7 @@ namespace QuizProjekt
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            QuizList.DataSource = new QuizRepository().GetAllQuizes();
+            QuizList.DataSource = QuizRepository.GetAllQuizes();
             QuizList.DataBind();
         }
 
