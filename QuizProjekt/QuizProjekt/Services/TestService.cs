@@ -34,6 +34,7 @@ namespace QuizProjekt.Services
                     {
                         t.Name = test.Name;
                         t.Description = test.Description;
+                        t.Public = test.Public;
                     }
                 }
                 context.SaveChanges();

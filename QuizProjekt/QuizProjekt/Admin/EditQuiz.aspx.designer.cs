@@ -49,6 +49,15 @@ namespace QuizProjekt.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
+        /// checkBoxPublic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox checkBoxPublic;
+        
+        /// <summary>
         /// btnSaveBack control.
         /// </summary>
         /// <remarks>

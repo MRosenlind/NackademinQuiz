@@ -17,6 +17,9 @@
         <asp:Label ID="Label2" runat="server" Text="Beskrivning"></asp:Label>
         <br />
         <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
+        <asp:CheckBox ID="checkBoxPublic" runat="server" Text="Publik" />
+    </p>
+    <p>
         <br />
         <br />
         <br />
