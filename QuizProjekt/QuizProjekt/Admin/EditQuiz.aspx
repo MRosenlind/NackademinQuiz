@@ -20,9 +20,9 @@
         <br />
         <br />
         <br />
-        <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Spara -&gt; Tillbaka" />
+        <asp:Button ID="btnSaveBack" runat="server" OnClick="btnSaveBack_Click" Text="Spara -&gt; Tillbaka" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnToQuestions" runat="server" OnClick="btnToQuestions_Click" Text="Spara -&gt; Frågor" />
+        <asp:Button ID="btnSaveToQuestions" runat="server" OnClick="btnSaveToQuestions_Click" Text="Spara -&gt; Frågor" />
         <br />
     </p>
 </asp:Content>

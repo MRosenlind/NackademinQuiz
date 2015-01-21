@@ -36,14 +36,30 @@ namespace QuizProjekt.Admin
             }
         }
 
-        protected void btnBack_Click(object sender, EventArgs e)
+        protected void btnSaveBack_Click(object sender, EventArgs e)
         {
+            var Test = new Test
+            {
+                Id = _quizId,
+                Name = txtName.Text,
+                Description = txtDescription.Text
+            };
+            _service.SaveTest(Test);
 
+            Response.Redirect("~/Default.aspx");
         }
 
-        protected void btnToQuestions_Click(object sender, EventArgs e)
+        protected void btnSaveToQuestions_Click(object sender, EventArgs e)
         {
+            var Test = new Test
+            {
+                Id = _quizId,
+                Name = txtName.Text,
+                Description = txtDescription.Text
+            };
+            _service.SaveTest(Test);
 
+            Response.Redirect("EditQuestion.aspx?id=" + _quizId);
         }
     }
 }

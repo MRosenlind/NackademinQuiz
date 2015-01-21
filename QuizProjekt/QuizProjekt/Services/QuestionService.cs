@@ -28,5 +28,23 @@ namespace QuizProjekt.Services
             }
 
         }
+        public Question GetPreviousQuestion(int testId, int questionId)
+        {
+            using (var context = new TestContext())
+            {
+                return context.Questions
+                    .Where(x => x.Test.Id == testId && x.Id > questionId)
+                    .OrderBy(x => x.Id)
+                    .FirstOrDefault();
+            }
+        }
+        //public Question GetQuestions(int id)
+        //{
+        //    using (var context = new TestContext())
+        //    {
+        //        //return context.Questions.Include(x => x.Text).Where(x => x.Id == id);
+
+        //    }
+        //}
     }
 }
