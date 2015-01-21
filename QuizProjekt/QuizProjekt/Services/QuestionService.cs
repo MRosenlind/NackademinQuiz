@@ -38,13 +38,42 @@ namespace QuizProjekt.Services
                     .FirstOrDefault();
             }
         }
+        public void SaveQuestion(Question question)
+        {
+            using (var context = new TestContext())
+            {
+                if (question.Id == 0)
+                {
+                    context.Questions.Add(question);
+                }
+                else
+                {
+                    var q = context.Questions.FirstOrDefault(x => x.Id == question.Id);
+                    if (q != null)
+                    {
+                        q.Text = question.Text;
+                    }
+                }
+                context.SaveChanges();
+            }
+        }
         //public Question GetQuestions(int id)
         //{
         //    using (var context = new TestContext())
         //    {
-        //        //return context.Questions.Include(x => x.Text).Where(x => x.Id == id);
+        //        //return context.Questions.Where(x=>x.Id == id)
+                public List<Question> GetQuestions(int quizId)
+        {
+            using (var context = new TestContext())
+            {
 
-        //    }
-        //}
+                return context.Questions.Where(x => x.Test.Id == quizId).ToList();
+
+            }
+
+        }
+
+            
+        
     }
 }

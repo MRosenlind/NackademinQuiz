@@ -29,8 +29,6 @@ namespace QuizProjekt.Admin
                         txtName.Text = test.Name;
                         txtDescription.Text = test.Description;
 
-                        
-
                     }
                 }
             }
@@ -38,28 +36,28 @@ namespace QuizProjekt.Admin
 
         protected void btnSaveBack_Click(object sender, EventArgs e)
         {
-            var Test = new Test
+            var test = new Test
             {
                 Id = _quizId,
                 Name = txtName.Text,
                 Description = txtDescription.Text
             };
-            _service.SaveTest(Test);
+            _service.SaveTest(test);
 
             Response.Redirect("~/Default.aspx");
         }
 
         protected void btnSaveToQuestions_Click(object sender, EventArgs e)
         {
-            var Test = new Test
+            var test = new Test
             {
                 Id = _quizId,
                 Name = txtName.Text,
                 Description = txtDescription.Text
             };
-            _service.SaveTest(Test);
+            _service.SaveTest(test);
 
-            Response.Redirect("EditQuestion.aspx?id=" + _quizId);
+            Response.Redirect("EditQuestion.aspx?id=" + test.Id);
         }
     }
 }

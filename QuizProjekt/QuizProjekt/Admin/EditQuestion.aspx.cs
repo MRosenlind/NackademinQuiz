@@ -18,29 +18,45 @@ namespace QuizProjekt.Admin
         {
             _questionId = Request.QueryString["Id"].ToInt();
 
-            if (!Page.IsPostBack)
-            {
-                if (_questionId > 0)
-                {
-                    var question = _service.GetNextQuestion(_questionId, 0);
-                    if (question != null)
-                    {
-                        txtQuestion.Text = question.Text;
+            //if (!Page.IsPostBack)
+            //{
+            //    if (_questionId > 0)
+            //    {
+            //        var question = _service.GetQuestions(_questionId);
+            //        if (question != null)
+            //        {
+
+            //            txtQuestion.Text = question.;
                         
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
         }
 
         protected void btnSaveToStart_Click(object sender, EventArgs e)
         {
+            var question = new Question
+            {
+               Id = _questionId,
+                Text = txtQuestion.Text
+            };
+            _service.SaveQuestion(question);
 
+            Response.Redirect("~/Default.aspx");
         }
 
         protected void btnSaveToAlternative_Click(object sender, EventArgs e)
         {
+        //    var Test = new Test
+        //    {
+        //        Id = _quizId,
+        //        Name = txtName.Text,
+        //        Description = txtDescription.Text
+        //    };
+        //    _service.SaveTest(Test);
 
+        //    Response.Redirect("~/Default.aspx");
         }
     }
 }

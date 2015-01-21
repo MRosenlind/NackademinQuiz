@@ -7,6 +7,19 @@
         <asp:TextBox ID="txtQuestion" runat="server"></asp:TextBox>
         <br />
         <br />
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1">
+            <Columns>
+                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+                <asp:BoundField DataField="Text" HeaderText="Text" SortExpression="Text" />
+            </Columns>
+        </asp:GridView>
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetQuestions" TypeName="QuizProjekt.Services.QuestionService">
+            <SelectParameters>
+               <asp:QueryStringParameter QueryStringField="Id" Name="quizId" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
+        <br />
+        <br />
         <asp:Button ID="btnSaveToStart" runat="server" OnClick="btnSaveToStart_Click" Text="Spara -&gt; Startsida" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnSaveToAlternative" runat="server" OnClick="btnSaveToAlternative_Click" Text="Spara -&gt; Svarsalternativ" />
