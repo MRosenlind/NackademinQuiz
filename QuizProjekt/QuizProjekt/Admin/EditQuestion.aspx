@@ -5,6 +5,15 @@
     <p>
         <br />
         <asp:TextBox ID="txtQuestion" runat="server"></asp:TextBox>
+    </p>
+    <p>
+        <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>
+    </p>
+    <p>
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
+    </p>
+    <p>
         <br />
         <br />
         <asp:Button ID="btnSaveToStart" runat="server" OnClick="btnSaveToStart_Click" Text="Spara -&gt; Startsida" />

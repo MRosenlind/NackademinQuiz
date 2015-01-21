@@ -46,8 +46,7 @@ namespace QuizProjekt.Admin
                 Public = checkBoxPublic.Checked
             };
 
-            if (checkBoxPublic.Checked)
-                checkBoxPublic.Checked = true;
+            
 
             _service.SaveTest(Test);
 
