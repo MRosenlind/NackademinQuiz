@@ -24,6 +24,11 @@
     <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
     <br />
     <br />
+    <asp:Label ID="lblPublic" runat="server" Text="Publik"></asp:Label>
+&nbsp;&nbsp;&nbsp;
+    <asp:CheckBox ID="CheckBoxPublic" runat="server" />
+    <br />
+    <br />
     <asp:Button ID="btnSubmit" runat="server"  OnClick="btnSubmit_Click" Text="Skapa" />
     <br />
     <br />

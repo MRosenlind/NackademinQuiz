@@ -28,6 +28,11 @@ namespace QuizProjekt.Admin
             var quiz = new Test();
             quiz.Name = txtName.Text;
             quiz.Description = txtDescription.Text;
+            quiz.Public = CheckBoxPublic.Checked;
+
+            if (CheckBoxPublic.Checked)
+                CheckBoxPublic.Checked = true;
+
             QuizRepository.AddQuiz(quiz);
 
 

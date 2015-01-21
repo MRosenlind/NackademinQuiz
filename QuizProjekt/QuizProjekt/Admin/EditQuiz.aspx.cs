@@ -28,9 +28,7 @@ namespace QuizProjekt.Admin
                     {
                         txtName.Text = test.Name;
                         txtDescription.Text = test.Description;
-
-                        
-
+                        checkBoxPublic.Checked = test.Public;
                     }
                 }
             }
@@ -38,12 +36,19 @@ namespace QuizProjekt.Admin
 
         protected void btnSaveBack_Click(object sender, EventArgs e)
         {
+            
+
             var Test = new Test
             {
                 Id = _quizId,
                 Name = txtName.Text,
-                Description = txtDescription.Text
+                Description = txtDescription.Text,
+                Public = checkBoxPublic.Checked
             };
+
+            if (checkBoxPublic.Checked)
+                checkBoxPublic.Checked = true;
+
             _service.SaveTest(Test);
 
             Response.Redirect("~/Default.aspx");
@@ -55,11 +60,15 @@ namespace QuizProjekt.Admin
             {
                 Id = _quizId,
                 Name = txtName.Text,
-                Description = txtDescription.Text
+                Description = txtDescription.Text,
+                Public = checkBoxPublic.Checked
             };
+
             _service.SaveTest(Test);
 
             Response.Redirect("EditQuestion.aspx?id=" + _quizId);
         }
+
+
     }
 }
