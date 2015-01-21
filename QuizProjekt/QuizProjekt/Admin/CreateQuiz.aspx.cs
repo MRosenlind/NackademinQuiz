@@ -45,11 +45,7 @@ namespace QuizProjekt.Admin
 
             int.TryParse(qId, out i);
             var test = new Test();
-            test.Name = DdlQuizList.SelectedValue;
-
-            QuizRepository.GetTest(i);
-
-            //DdlQuizList
+            test.Id = DdlQuizList.SelectedValue.ToInt();
 
             Response.Redirect("EditQuiz.aspx?id=" + test.Id);
         }

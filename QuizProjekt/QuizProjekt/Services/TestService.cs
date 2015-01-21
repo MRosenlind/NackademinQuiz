@@ -14,7 +14,8 @@ namespace QuizProjekt.Services
         {
             using (var context = new TestContext())
             {
-                return context.Tests.Include(x => x.Name).FirstOrDefault(x => x.Id == id);
+                return context.Tests.
+                    FirstOrDefault(x => x.Id == id);
 
             }
         }

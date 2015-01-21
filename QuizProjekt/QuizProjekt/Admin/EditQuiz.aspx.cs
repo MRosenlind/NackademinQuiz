@@ -17,22 +17,33 @@ namespace QuizProjekt.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             //raden nedan var bortkommenterad....
-            _quizId = Request.QueryString["id"].ToInt();
+            _quizId = Request.QueryString["Id"].ToInt();
 
             if (!Page.IsPostBack)
             {
                 if (_quizId > 0)
                 {
-                    var quiz = _service.GetTest(_quizId);
-                    if (quiz != null)
+                    var test = _service.GetTest(_quizId);
+                    if (test != null)
                     {
-                        txtName.Text = quiz.Name;
-                        txtDescription.Text = quiz.Description;
+                        txtName.Text = test.Name;
+                        txtDescription.Text = test.Description;
 
                         
+
                     }
                 }
             }
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnToQuestions_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

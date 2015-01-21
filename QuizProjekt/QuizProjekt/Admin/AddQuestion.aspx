@@ -17,10 +17,7 @@
         <asp:TextBox ID="txtQuestion" runat="server"></asp:TextBox>
         <br />
         <br />
-       <%-- <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id">
-        </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Test %>" SelectCommand="SELECT [Id], [Name] FROM [Tests]"></asp:SqlDataSource>
-       --%> <br />
+      <br />
         <br />
         <asp:Button ID="btnQuestSubmit" runat="server" OnClick="btnQuestSubmit_Click" Text="Nästa" />
         <br />

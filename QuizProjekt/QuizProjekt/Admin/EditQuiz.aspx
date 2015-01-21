@@ -18,5 +18,11 @@
         <br />
         <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
         <br />
+        <br />
+        <br />
+        <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Spara -&gt; Tillbaka" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnToQuestions" runat="server" OnClick="btnToQuestions_Click" Text="Spara -&gt; Frågor" />
+        <br />
     </p>
 </asp:Content>
