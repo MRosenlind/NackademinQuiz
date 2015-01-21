@@ -5,11 +5,21 @@
     <p>
         <br />
         <asp:TextBox ID="txtQuestion" runat="server"></asp:TextBox>
-    </p>
-    <p>
-        <asp:GridView ID="GridView1" runat="server">
+    <br />
+        <br />
+    
+        
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1">
+            <Columns>
+                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+                <asp:BoundField DataField="Text" HeaderText="Text" SortExpression="Text" />
+            </Columns>
         </asp:GridView>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetQuestions" TypeName="QuizProjekt.Services.QuestionService">
+            <SelectParameters>
+                <asp:QueryStringParameter DefaultValue="0" Name="quizId" QueryStringField="Id" Type="Int32" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
     
         
         <br />

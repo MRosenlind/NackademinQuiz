@@ -26,6 +26,8 @@
         <asp:Button ID="btnSaveBack" runat="server" OnClick="btnSaveBack_Click" Text="Spara -&gt; Tillbaka" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnSaveToQuestions" runat="server" OnClick="btnSaveToQuestions_Click" Text="Spara -&gt; Frågor" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Ta bort" />
         <br />
     </p>
 </asp:Content>

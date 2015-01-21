@@ -68,6 +68,12 @@ namespace QuizProjekt.Admin
             Response.Redirect("EditQuestion.aspx?id=" + _quizId);
         }
 
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            _service.Delete(_quizId);
+            Response.Redirect("~/Default.aspx");
+        }
+
 
     }
 }

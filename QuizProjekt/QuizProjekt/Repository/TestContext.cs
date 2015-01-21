@@ -17,5 +17,19 @@ namespace QuizProjekt.Repository
 
         public DbSet<Question> Questions { get; set; }
         public DbSet<Alternative> Alternatives { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Question>()
+                .HasRequired(x => x.Test)
+                .WithMany(x => x.Questions)
+                .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<Alternative>()
+                .HasRequired(x => x.Question)
+                .WithMany(x => x.Alternatives)
+                .WillCascadeOnDelete(true);
+        }
     }
 }

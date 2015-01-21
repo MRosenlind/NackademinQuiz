@@ -40,5 +40,15 @@ namespace QuizProjekt.Services
                 context.SaveChanges();
             }
         }
+        public void Delete(int id)
+        {
+            using (var context = new TestContext())
+            {
+                var t = context.Tests.
+                    FirstOrDefault(x => x.Id == id);
+                context.Tests.Remove(t);
+                context.SaveChanges();
+            }
+        }
     }
 }

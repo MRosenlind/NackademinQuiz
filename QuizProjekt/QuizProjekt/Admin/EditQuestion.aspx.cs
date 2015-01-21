@@ -18,20 +18,20 @@ namespace QuizProjekt.Admin
         {
             _questionId = Request.QueryString["Id"].ToInt();
 
-            //if (!Page.IsPostBack)
-            //{
-            //    if (_questionId > 0)
-            //    {
-            //        var question = _service.GetQuestions(_questionId);
-            //        if (question != null)
-            //        {
+        //    if (!Page.IsPostBack)
+        //    {
+        //        if (_questionId > 0)
+        //        {
+        //            var question = _service.GetQuestions(_questionId);
+        //            if (question != null)
+        //            {
 
-            //            txtQuestion.Text = question.;
+                        
                         
 
-            //        }
-            //    }
-            //}
+        //            }
+        //        }
+        //    }
         }
 
         protected void btnSaveToStart_Click(object sender, EventArgs e)
