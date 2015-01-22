@@ -11,24 +11,27 @@ namespace QuizProjekt.Admin
 {
     public partial class AddAlternative : System.Web.UI.Page
     {
+        private int _alternativeId;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            _alternativeId = Request.QueryString["Id"].ToInt();
         }
 
         protected void btnLaggTill_Click(object sender, EventArgs e)
         {
-            //var alternative = new Alternative();
+            var qId = Request.QueryString["id"];
 
-            //alternative.Text = txtAlternative.Text;
+            var i = 0;
 
-            
-            ////new QuizRepository().AddAlternative(alternative, int.Parse());
-            //if (CheckBoxRattSvar != null)
-            //{
-             
-            //}
-            Response.Redirect("AddAlternative.aspx");
+            int.TryParse(qId, out i);
+            var alternative = new Alternative();
+            alternative.Id = _alternativeId;
+            alternative.Text = txtAlternative.Text;
+
+            QuizRepository.AddAlternative(alternative, i);
+
+
+            Response.Redirect("AddAlternative.aspx?id=" + _alternativeId);
         }
 
         protected void btnAvsluta_Click(object sender, EventArgs e)

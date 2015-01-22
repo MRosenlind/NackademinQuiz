@@ -12,24 +12,32 @@ namespace QuizProjekt
 {
     public partial class DoQuiz : System.Web.UI.Page
     {
+        private int _testId;
         private int _questionId;
         private QuestionService _service = new QuestionService();
         protected void Page_Load(object sender, EventArgs e)
         {
-            _questionId = Request.QueryString["Id"].ToInt();
+            _testId = Request.QueryString["Id"].ToInt();
+            _questionId = Request.QueryString["qId"].ToInt();
 
             if (!Page.IsPostBack)
             {
-                if (_questionId > 0)
+                if (_testId > 0)
                {
-                  var quiz = _service.GetNextQuestion(_questionId, 0);
-                   if (quiz != null)
+                  var question = _service.GetNextQuestion(_testId, _questionId);
+                   if (question != null)
                    {
-                       lblQuestion.Text = quiz.Text;
+                       
+                       lblQuestion.Text = question.Text;
                    
                    }
                }
             }
+        }
+
+        protected void btnNextQuestion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DoQuiz.aspx?id=" + _testId + "&qId=" + (_questionId+1));
         }
     }
 }

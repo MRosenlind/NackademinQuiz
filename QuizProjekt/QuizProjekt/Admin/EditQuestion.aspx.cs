@@ -18,20 +18,21 @@ namespace QuizProjekt.Admin
         {
             _questionId = Request.QueryString["Id"].ToInt();
 
-        //    if (!Page.IsPostBack)
-        //    {
-        //        if (_questionId > 0)
-        //        {
-        //            var question = _service.GetQuestions(_questionId);
-        //            if (question != null)
-        //            {
+            if (!Page.IsPostBack)
+            {
+                if (_questionId > 0)
+                {
+                    var question = _service.GetQuestions(_questionId);
+                    if (question != null)
+                    {
 
-                        
-                        
 
-        //            }
-        //        }
-        //    }
+
+
+
+                    }
+                }
+            }
         }
 
         protected void btnSaveToStart_Click(object sender, EventArgs e)
@@ -48,15 +49,14 @@ namespace QuizProjekt.Admin
 
         protected void btnSaveToAlternative_Click(object sender, EventArgs e)
         {
-        //    var Test = new Test
-        //    {
-        //        Id = _quizId,
-        //        Name = txtName.Text,
-        //        Description = txtDescription.Text
-        //    };
-        //    _service.SaveTest(Test);
+            var question = new Question
+            {
+                Id = _questionId,
+                Text = txtQuestion.Text
+            };
+            _service.SaveQuestion(question);
 
-        //    Response.Redirect("~/Default.aspx");
+            Response.Redirect("AddAlternative.aspx?id="+ _questionId);
         }
     }
 }

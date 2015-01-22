@@ -66,7 +66,6 @@ namespace QuizProjekt.Services
         {
             using (var context = new TestContext())
             {
-
                 return context.Questions.Where(x => x.Test.Id == quizId).ToList();
 
             }
