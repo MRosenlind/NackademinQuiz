@@ -55,7 +55,7 @@ namespace QuizProjekt.Admin
 
         protected void btnSaveToQuestions_Click(object sender, EventArgs e)
         {
-            var Test = new Test
+            var test = new Test
             {
                 Id = _quizId,
                 Name = txtName.Text,
@@ -63,7 +63,7 @@ namespace QuizProjekt.Admin
                 Public = checkBoxPublic.Checked
             };
 
-            _service.SaveTest(Test);
+            _service.SaveTest(test);
 
             Response.Redirect("EditQuestion.aspx?id=" + _quizId);
         }

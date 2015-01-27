@@ -36,10 +36,13 @@ namespace QuizProjekt.Admin
         {
             var alternative = new Alternative
             {
-               Id = _questionId,
-                Text = txtAlternative.Text
+               
+                Text = txtAlternative.Text,
+                
+                
+                
             };
-            _service.SaveAlternative(alternative);
+            _service.SaveAlternative(alternative,_questionId);
 
             Response.Redirect("EditQuestion.aspx?id="+ _questionId);
         }
