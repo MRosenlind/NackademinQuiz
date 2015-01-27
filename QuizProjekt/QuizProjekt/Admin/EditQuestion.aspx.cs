@@ -13,7 +13,7 @@ namespace QuizProjekt.Admin
     public partial class EditQuestion : System.Web.UI.Page
     {
         private int _questionId;
-        private QuestionService _service = new QuestionService();
+        private AlternativeService _service = new AlternativeService();
         protected void Page_Load(object sender, EventArgs e)
         {
             _questionId = Request.QueryString["Id"].ToInt();
@@ -22,12 +22,9 @@ namespace QuizProjekt.Admin
             {
                 if (_questionId > 0)
                 {
-                    var question = _service.GetQuestions(_questionId);
+                    var question = _service.GetAlternatives(_questionId);
                     if (question != null)
                     {
-
-
-
 
 
                     }
@@ -37,26 +34,26 @@ namespace QuizProjekt.Admin
 
         protected void btnSaveToStart_Click(object sender, EventArgs e)
         {
-            var question = new Question
+            var alternative = new Alternative
             {
                Id = _questionId,
-                Text = txtQuestion.Text
+                Text = txtAlternative.Text
             };
-            _service.SaveQuestion(question);
+            _service.SaveAlternative(alternative);
 
-            Response.Redirect("~/Default.aspx");
+            Response.Redirect("EditQuestion.aspx?id="+ _questionId);
         }
 
         protected void btnSaveToAlternative_Click(object sender, EventArgs e)
         {
-            var question = new Question
-            {
-                Id = _questionId,
-                Text = txtQuestion.Text
-            };
-            _service.SaveQuestion(question);
+            //var question = new Question
+            //{
+            //    Id = _questionId,
+            //    Text = txtQuestion.Text
+            //};
+            //_service.SaveQuestion(question);
 
-            Response.Redirect("AddAlternative.aspx?id="+ _questionId);
+            //Response.Redirect("AddAlternative.aspx?id="+ _questionId);
         }
     }
 }

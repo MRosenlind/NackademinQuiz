@@ -18,5 +18,25 @@ namespace QuizProjekt.Services
             }
 
         }
+
+        public void SaveAlternative(Alternative alternative)
+        {
+            using (var context = new TestContext())
+            {
+                if (alternative.Id == 0)
+                {
+                    context.Alternatives.Add(alternative);
+                }
+                else
+                {
+                    var a = context.Alternatives.FirstOrDefault(x => x.Id == alternative.Id);
+                    if (a != null)
+                    {
+                        a.Text = alternative.Text;
+                    }
+                }
+                context.SaveChanges();
+            }
+        }
     }
 }
