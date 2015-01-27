@@ -18,7 +18,14 @@
         <br />
         <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
         <asp:CheckBox ID="checkBoxPublic" runat="server" Text="Publik" />
+    </p>
+    <p>
+        <asp:Label ID="Label3" runat="server" Text="Lägg till en fråga"></asp:Label>
     <br />
+    
+        <asp:TextBox ID="txtQuestion" runat="server"></asp:TextBox>
+    </p>
+    <p>
     
         <br />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1">

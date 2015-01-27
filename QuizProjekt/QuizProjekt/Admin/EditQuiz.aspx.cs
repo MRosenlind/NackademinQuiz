@@ -14,6 +14,8 @@ namespace QuizProjekt.Admin
     {
         private int _quizId;
         private TestService _service = new TestService();
+
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             //raden nedan var bortkommenterad....
@@ -45,10 +47,19 @@ namespace QuizProjekt.Admin
                 Description = txtDescription.Text,
                 Public = checkBoxPublic.Checked
             };
-
-            
-
             _service.SaveTest(Test);
+
+            var qId = Request.QueryString["Id"];
+
+            var i = 0;
+
+            int.TryParse(qId, out i);
+            var question = new Question();
+            question.Text = txtQuestion.Text;
+
+            QuizRepository.AddQuestion(question, i);
+
+
 
             Response.Redirect("EditQuiz.aspx?id=" + _quizId);
         }

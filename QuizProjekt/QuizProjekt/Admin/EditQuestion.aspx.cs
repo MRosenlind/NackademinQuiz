@@ -36,11 +36,9 @@ namespace QuizProjekt.Admin
         {
             var alternative = new Alternative
             {
-               
                 Text = txtAlternative.Text,
-                
-                
-                
+                Correct = chechBoxRight.Checked
+  
             };
             _service.SaveAlternative(alternative,_questionId);
 

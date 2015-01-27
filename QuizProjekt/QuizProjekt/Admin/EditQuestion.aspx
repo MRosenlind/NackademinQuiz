@@ -7,13 +7,14 @@
         <asp:Label ID="Label1" runat="server" Text="Lägg till alternativ"></asp:Label>
         <br />
         <asp:TextBox ID="txtAlternative" runat="server"></asp:TextBox>
+    &nbsp;<asp:CheckBox ID="chechBoxRight" runat="server" Text="Rätt svar" />
     <br />
         <br />
     
         
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1">
             <Columns>
-                <asp:CheckBoxField DataField="Correct" HeaderText="Correct" SortExpression="Correct" />
+                <asp:CheckBoxField DataField="Correct" HeaderText="Correct" SortExpression="Correct" ReadOnly="True" />
                 <asp:BoundField DataField="Text" HeaderText="Text" SortExpression="Text" />
                 <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
             </Columns>
