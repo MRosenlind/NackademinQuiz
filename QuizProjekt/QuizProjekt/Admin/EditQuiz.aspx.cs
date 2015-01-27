@@ -50,7 +50,7 @@ namespace QuizProjekt.Admin
 
             _service.SaveTest(Test);
 
-            Response.Redirect("~/Default.aspx");
+            Response.Redirect("EditQuiz.aspx?id=" + _quizId);
         }
 
         protected void btnSaveToQuestions_Click(object sender, EventArgs e)

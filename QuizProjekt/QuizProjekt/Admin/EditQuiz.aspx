@@ -18,9 +18,17 @@
         <br />
         <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
         <asp:CheckBox ID="checkBoxPublic" runat="server" Text="Publik" />
-    </p>
-    <p>
+    <br />
+    
         <br />
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                <asp:BoundField DataField="Text" HeaderText="Text" SortExpression="Text" />
+                <asp:CommandField HeaderText="Edit" ShowEditButton="True" ShowHeader="True" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Test %>" SelectCommand="SELECT [Id], [Text] FROM [Questions]"></asp:SqlDataSource>
         <br />
         <br />
         <asp:Button ID="btnSaveBack" runat="server" OnClick="btnSaveBack_Click" Text="Spara -&gt; Tillbaka" />
