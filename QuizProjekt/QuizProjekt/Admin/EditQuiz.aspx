@@ -12,11 +12,15 @@
         <asp:Label ID="Label1" runat="server" Text="Namn"></asp:Label>
         <br />
         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName" ErrorMessage="*" ForeColor="Red" ValidationGroup="txtVal"></asp:RequiredFieldValidator>
         <br />
         <br />
         <asp:Label ID="Label2" runat="server" Text="Beskrivning"></asp:Label>
         <br />
         <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDescription" ErrorMessage="*" ForeColor="Red" ValidationGroup="txtVal"></asp:RequiredFieldValidator>
+    </p>
+    <p>
         <asp:CheckBox ID="checkBoxPublic" runat="server" Text="Publik" />
     </p>
     <p>
@@ -24,6 +28,7 @@
     <br />
     
         <asp:TextBox ID="txtQuestion" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtQuestion" ErrorMessage="*" ForeColor="Red" ValidationGroup="txtVal"></asp:RequiredFieldValidator>
     </p>
     <p>
     
@@ -32,7 +37,7 @@
             <Columns>
                 <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="EditQuestion.aspx?id={0}" DataTextField="Id" HeaderText="ID" />
                 <asp:BoundField DataField="Text" HeaderText="Text" SortExpression="Text" />
-                <asp:CommandField HeaderText="Edit" ShowEditButton="True" ShowHeader="True" />
+                <asp:CommandField HeaderText="Edit" ShowEditButton="True" ShowHeader="True" ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:Test %>" DeleteCommand="DELETE FROM [Questions] WHERE [Id] = @original_Id AND (([Text] = @original_Text) OR ([Text] IS NULL AND @original_Text IS NULL))" InsertCommand="INSERT INTO [Questions] ([Text]) VALUES (@Text)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT [Id], [Text] FROM [Questions] WHERE ([Test_Id] = @Test_Id)" UpdateCommand="UPDATE [Questions] SET [Text] = @Text WHERE [Id] = @original_Id AND (([Text] = @original_Text) OR ([Text] IS NULL AND @original_Text IS NULL))">
@@ -54,10 +59,9 @@
         </asp:SqlDataSource>
         <br />
         <br />
-        <asp:Button ID="btnSaveBack" runat="server" OnClick="btnSaveBack_Click" Text="Spara -&gt; Tillbaka" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnSaveToQuestions" runat="server" OnClick="btnSaveToQuestions_Click" Text="Spara -&gt; Frågor" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnSaveBack" runat="server" OnClick="btnSaveBack_Click" Text="Lägg till fråga" ValidationGroup="txtVal" />
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Startsidan" runat="server" OnClick="Startsidan_Click" Text="Startsidan" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Ta bort" />
         <br />
     </p>

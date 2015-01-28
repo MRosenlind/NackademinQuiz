@@ -63,25 +63,34 @@ namespace QuizProjekt.Admin
 
             Response.Redirect("EditQuiz.aspx?id=" + _quizId);
         }
+        /// <summary>
+        /// Tog bort knappen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //protected void btnSaveToQuestions_Click(object sender, EventArgs e)
+        //{
+        //    var test = new Test
+        //    {
+        //        Id = _quizId,
+        //        Name = txtName.Text,
+        //        Description = txtDescription.Text,
+        //        Public = checkBoxPublic.Checked
+        //    };
 
-        protected void btnSaveToQuestions_Click(object sender, EventArgs e)
-        {
-            var test = new Test
-            {
-                Id = _quizId,
-                Name = txtName.Text,
-                Description = txtDescription.Text,
-                Public = checkBoxPublic.Checked
-            };
+        //    _service.SaveTest(test);
 
-            _service.SaveTest(test);
-
-            Response.Redirect("EditQuestion.aspx?id=" + _quizId);
-        }
+        //    Response.Redirect("EditQuestion.aspx?id=" + _quizId);
+        //}
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             _service.Delete(_quizId);
+            Response.Redirect("~/Default.aspx");
+        }
+
+        protected void Startsidan_Click(object sender, EventArgs e)
+        {
             Response.Redirect("~/Default.aspx");
         }
 

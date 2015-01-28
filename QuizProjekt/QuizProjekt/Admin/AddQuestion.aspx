@@ -15,6 +15,7 @@
         <asp:Label ID="Label2" runat="server" Text="Fyll i din fråga"></asp:Label>
         <br />
         <asp:TextBox ID="txtQuestion" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQuestion" ErrorMessage="*" ForeColor="#FF3300"></asp:RequiredFieldValidator>
         <br />
         <br />
       <br />

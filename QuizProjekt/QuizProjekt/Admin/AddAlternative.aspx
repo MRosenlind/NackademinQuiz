@@ -7,10 +7,15 @@
         <br />
         <br />
         <asp:TextBox ID="txtAlternative" runat="server"></asp:TextBox>
+
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAlternative" ErrorMessage="*" ForeColor="Red" ValidationGroup="txtVal"></asp:RequiredFieldValidator>
+
+    </p>
+    <p>
         <asp:CheckBox ID="CheckBoxRattSvar" runat="server" Text="Rätt svar" />
         <br />
         <br />
-        <asp:Button ID="btnLaggTill" runat="server" OnClick="btnLaggTill_Click" Text="Lägg till alternativ" />
+        <asp:Button ID="btnLaggTill" runat="server" OnClick="btnLaggTill_Click" Text="Lägg till alternativ" ValidationGroup="txtVal" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnAvsluta" runat="server" OnClick="btnAvsluta_Click" Text="Avsluta" />
         <br />
