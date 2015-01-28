@@ -17,14 +17,16 @@ namespace QuizProjekt
         private QuestionService _service = new QuestionService();
         protected void Page_Load(object sender, EventArgs e)
         {
+         
             _testId = Request.QueryString["Id"].ToInt();
             if(Request.QueryString["qId"] != null)
                 _questionId = Request.QueryString["qId"].ToInt();
             else
                 _questionId = _service.GetNextQuestion(_testId);
-
+            
             if (!Page.IsPostBack)
             {
+                //btnPreviousQuestion.Visible = false;
                 if (_testId > 0)
                {
                   var question = _service.GetNextQuestion(_testId, _questionId);
@@ -35,17 +37,21 @@ namespace QuizProjekt
                        lblQuestion.Text = question.Text;
                        RadioButtonList1.DataSource = alternatives;
                        RadioButtonList1.DataBind();
-                       
-                   
                    }
                }
             }
+            
         }
 
         protected void btnNextQuestion_Click(object sender, EventArgs e)
         {
             
             Response.Redirect("DoQuiz.aspx?id=" + _testId + "&qId=" + (_questionId+1));
+        }
+
+        protected void btnPreviousQuestion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DoQuiz.aspx?id=" + _testId + "&qId=" + (_questionId - 1));
         }
     }
 }
