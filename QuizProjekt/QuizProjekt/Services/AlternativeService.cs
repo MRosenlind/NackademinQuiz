@@ -19,7 +19,7 @@ namespace QuizProjekt.Services
 
         }
 
-        //public void SaveAlternative(Alternative alternative)
+        //public void SaveAlternatives(Alternative alternative)
         //{
         //    using (var context = new TestContext())
         //    {
