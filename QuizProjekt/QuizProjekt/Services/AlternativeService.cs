@@ -54,5 +54,19 @@ namespace QuizProjekt.Services
                 context.SaveChanges();
             }
         }
+        //public void Score(Alternative alternative, int score)
+        //{
+        //    score = 0;
+        //    using (var context = new TestContext())
+        //    {
+               
+        //        if (alternative.Correct == true)
+        //        {
+        //            score++;
+        //        }
+        //        context.SaveChanges();
+        //    }
+
+        //}
     }
 }

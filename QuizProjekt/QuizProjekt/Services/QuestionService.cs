@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using QuizProjekt.Models;
 
 
 namespace QuizProjekt.Services
 {
+    
     public class QuestionService
     {
         public Question GetNextQuestion(int testId, int questionId)
@@ -37,7 +39,10 @@ namespace QuizProjekt.Services
         {
             using (var context = new TestContext())
             {
-
+            //    if ()
+            //    {
+                    
+            //    }
                 return
                     context.Questions.Include("Alternatives")
                         .FirstOrDefault(x => x.Test.Id == testId).Id;

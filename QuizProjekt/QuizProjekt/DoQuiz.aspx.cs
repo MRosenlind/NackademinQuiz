@@ -12,18 +12,19 @@ namespace QuizProjekt
 {
     public partial class DoQuiz : System.Web.UI.Page
     {
+       // private int score;
+
         private int _testId;
         private int _questionId;
         private QuestionService _service = new QuestionService();
+
+        //private AlternativeService _aservice = new AlternativeService();
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblFinish.Visible = false;
             btnFinish.Visible = false;
-            //if (!Page.IsPostBack)
-            //{
-            //    btnPreviousQuestion.Visible = false;
-            //}
-            //else
-            //    btnPreviousQuestion.Visible = true;
+            //btnPreviousQuestion.Visible = false;
+           
             
             _testId = Request.QueryString["Id"].ToInt();
             if(Request.QueryString["qId"] != null)
@@ -37,6 +38,7 @@ namespace QuizProjekt
                 if (_testId > 0)
                {
                   var question = _service.GetNextQuestion(_testId, _questionId);
+                  //var answer = _aservice.Score( ,0);
                   
                    if (question != null)
                    {
@@ -44,15 +46,20 @@ namespace QuizProjekt
                        lblQuestion.Text = question.Text;
                        RadioButtonList1.DataSource = alternatives;
                        RadioButtonList1.DataBind();
+
+                       //btnPreviousQuestion.Visible = true;
                    }
                    
                    if (question == null)
                    {
+                       lblFinish.Visible = true;
                        btnFinish.Visible = true;
-                       //Response.Redirect("Default.aspx");
+                       
                    }
                }
             }
+            
+               
           
         }
 
@@ -69,7 +76,7 @@ namespace QuizProjekt
 
         protected void btnFinish_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Finish.aspx");
         }
     }
 }

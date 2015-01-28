@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p>
         <asp:Label ID="lblQuestion" runat="server"></asp:Label>
+        <asp:Label ID="lblFinish" runat="server" Text="Du har nu svarat på alla frågor. &lt;br/&gt;Klicka på avsluta för att se ditt resultat!"></asp:Label>
         <br />
         <br />
         <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataTextField="Text" DataValueField="Id">
