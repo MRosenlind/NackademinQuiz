@@ -15,18 +15,34 @@ namespace QuizProjekt.Services
         {
             using (var context = new TestContext())
             {
-                return context.Questions
-                    //.Where(x => x.Test.Id == testId && x.Id > questionId)
-                    //.OrderBy(x => x.Id)
-                    //.FirstOrDefault();
+                //return context.Questions
+                //    .Where(x => x.Test.Id == testId && x.Id > questionId)
+                //    .OrderBy(x => x.Id)
+                //    .FirstOrDefault();
 
                 //return context.Questions
-                    .Include(x => x.Alternatives)
-                    .Where(x => x.Test.Id == testId && x.Id > questionId)
-                    .OrderBy(x => x.Id)
-                    .FirstOrDefault();
-            }
+                //    .Include(x => x.Alternatives)
+                //    .Where(x => x.Test.Id == testId && x.Id > questionId)
+                //    .OrderBy(x => x.Id)
+                //    .FirstOrDefault();
 
+                return
+                    context.Questions.Include("Alternatives")
+                        .OrderBy(x => x.Id)
+                        .FirstOrDefault(x => x.Test.Id == testId && x.Id == questionId);
+
+            }
+        }
+        public int GetNextQuestion(int testId)
+        {
+            using (var context = new TestContext())
+            {
+
+                return
+                    context.Questions.Include("Alternatives")
+                        .FirstOrDefault(x => x.Test.Id == testId).Id;
+
+            }
         }
         public Question GetPreviousQuestion(int testId, int questionId)
         {

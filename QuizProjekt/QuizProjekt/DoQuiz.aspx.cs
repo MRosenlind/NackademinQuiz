@@ -18,17 +18,24 @@ namespace QuizProjekt
         protected void Page_Load(object sender, EventArgs e)
         {
             _testId = Request.QueryString["Id"].ToInt();
-            _questionId = Request.QueryString["qId"].ToInt();
+            if(Request.QueryString["qId"] != null)
+                _questionId = Request.QueryString["qId"].ToInt();
+            else
+                _questionId = _service.GetNextQuestion(_testId);
 
             if (!Page.IsPostBack)
             {
                 if (_testId > 0)
                {
                   var question = _service.GetNextQuestion(_testId, _questionId);
+                  
                    if (question != null)
                    {
-                       
+                       var alternatives = question.Alternatives.Where(x => x.Question.Id == _questionId);
                        lblQuestion.Text = question.Text;
+                       RadioButtonList1.DataSource = alternatives;
+                       RadioButtonList1.DataBind();
+                       
                    
                    }
                }
@@ -37,6 +44,7 @@ namespace QuizProjekt
 
         protected void btnNextQuestion_Click(object sender, EventArgs e)
         {
+            
             Response.Redirect("DoQuiz.aspx?id=" + _testId + "&qId=" + (_questionId+1));
         }
     }
