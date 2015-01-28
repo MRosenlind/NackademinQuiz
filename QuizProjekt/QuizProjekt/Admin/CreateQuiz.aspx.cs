@@ -41,9 +41,7 @@ namespace QuizProjekt.Admin
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            //här kan det bli fel.... :/
-
-            // OBS!! nu finns det 2 st "GetTest", en i TestService och en i QuizRepository 
+             
             var qId = Request.QueryString["Id"];
 
             var i = 0;

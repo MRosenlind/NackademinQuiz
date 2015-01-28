@@ -76,12 +76,12 @@ namespace QuizProjekt.Admin {
         protected global::System.Web.UI.WebControls.Button btnSaveToStart;
         
         /// <summary>
-        /// btnSaveToAlternative control.
+        /// btnStartsida control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveToAlternative;
+        protected global::System.Web.UI.WebControls.Button btnStartsida;
     }
 }

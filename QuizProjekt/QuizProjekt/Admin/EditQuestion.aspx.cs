@@ -45,16 +45,11 @@ namespace QuizProjekt.Admin
             Response.Redirect("EditQuestion.aspx?id="+ _questionId);
         }
 
-        protected void btnSaveToAlternative_Click(object sender, EventArgs e)
+        protected void btnStartsida_Click(object sender, EventArgs e)
         {
-            //var question = new Question
-            //{
-            //    Id = _questionId,
-            //    Text = txtQuestion.Text
-            //};
-            //_service.SaveQuestion(question);
-
-            //Response.Redirect("AddAlternative.aspx?id="+ _questionId);
+            Response.Redirect("~/Default.aspx");
         }
+
+        
     }
 }

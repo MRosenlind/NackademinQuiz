@@ -49,9 +49,9 @@
         
         <br />
         <br />
-        <asp:Button ID="btnSaveToStart" runat="server" OnClick="btnSaveToStart_Click" Text="Spara -&gt; Startsida" ValidationGroup="valTxt" />
+        <asp:Button ID="btnSaveToStart" runat="server" OnClick="btnSaveToStart_Click" Text="Spara" ValidationGroup="valTxt" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnSaveToAlternative" runat="server" OnClick="btnSaveToAlternative_Click" Text="Spara -&gt; Svarsalternativ" />
+        <asp:Button ID="btnStartsida" runat="server" OnClick="btnStartsida_Click" Text="Startsidan" />
         <br />
     </p>
 </asp:Content>
