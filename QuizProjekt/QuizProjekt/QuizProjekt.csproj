@@ -70,6 +70,7 @@
     <Content Include="Admin\EditQuiz.aspx" />
     <Content Include="CSS\Style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Finish.aspx" />
     <Content Include="Global.asax" />
     <Content Include="DoQuiz.aspx" />
     <Content Include="Web.config" />
@@ -116,6 +117,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Finish.aspx.cs">
+      <DependentUpon>Finish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Finish.aspx.designer.cs">
+      <DependentUpon>Finish.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

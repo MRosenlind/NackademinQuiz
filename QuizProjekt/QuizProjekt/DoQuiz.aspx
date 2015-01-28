@@ -13,6 +13,8 @@
         <asp:Button ID="btnNextQuestion" runat="server" OnClick="btnNextQuestion_Click" Text="Nästa fråga" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnPreviousQuestion" runat="server" OnClick="btnPreviousQuestion_Click" Text="Förgående fråga" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnFinish" runat="server" OnClick="btnFinish_Click" Text="Avsluta quiz" />
         <br />
     </p>
 </asp:Content>
