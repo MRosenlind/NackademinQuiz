@@ -54,19 +54,21 @@ namespace QuizProjekt.Services
                 context.SaveChanges();
             }
         }
-        //public void Score(Alternative alternative, int score)
-        //{
-        //    score = 0;
-        //    using (var context = new TestContext())
-        //    {
-               
-        //        if (alternative.Correct == true)
-        //        {
-        //            score++;
-        //        }
-        //        context.SaveChanges();
-        //    }
+        public int Score( int score)
+        {
+            
+            using (var context = new TestContext())
+            {
+                var alternative = context.Alternatives.FirstOrDefault(x => x.Correct);
 
-        //}
+                if ( alternative.Correct == true)
+                {
+                    score++;
+                }
+                context.SaveChanges();
+                return score;
+            }
+
+        }
     }
 }

@@ -34,6 +34,11 @@
     font-family:'Century Gothic';
    font-size: 100px;
    
-    
-    
+}
+#doQuiz
+{
+  margin-left:40%;
+      margin-right:35%;
+  background-color: yellow;
+   
 }

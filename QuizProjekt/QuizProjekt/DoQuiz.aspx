@@ -2,7 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p>
+    <div id="header">
+      <div id="h1">
+        MM Quizes
+      </div> 
+        </div>
+        <div id="doQuiz">
         <asp:Label ID="lblQuestion" runat="server"></asp:Label>
         <asp:Label ID="lblFinish" runat="server" Text="Du har nu svarat på alla frågor. &lt;br/&gt;Klicka på avsluta för att se ditt resultat!"></asp:Label>
         <br />
@@ -17,5 +22,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnFinish" runat="server" OnClick="btnFinish_Click" Text="Avsluta quiz" />
         <br />
-    </p>
+            </div>
+    
 </asp:Content>
