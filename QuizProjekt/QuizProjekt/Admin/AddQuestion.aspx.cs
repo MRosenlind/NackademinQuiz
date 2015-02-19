@@ -2,6 +2,7 @@
 using QuizProjekt.Repository;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,16 +17,6 @@ namespace QuizProjekt.Admin
 
         }
 
-        //protected void CheckForQuizParameter()
-        //{
-        //    var qid = Request.QueryString["qid"];
-
-        //    var i = 0;
-
-        //    int.TryParse(qid, out i);
-
-        //    if (i == 0) { }
-        //}
 
         protected void btnQuestSubmit_Click(object sender, EventArgs e)
         {
@@ -36,12 +27,39 @@ namespace QuizProjekt.Admin
             int.TryParse(qId, out i);
             var question = new Question();
             question.Text = txtQuestion.Text;
-            
+
+            if (FileUpload1.HasFile)
+            {
+                question.Image = Path.GetExtension(FileUpload1.FileName);
+            }
+
             QuizRepository.AddQuestion(question, i);
 
 
             Response.Redirect("AddAlternative.aspx?id=" + question.Id);
             
+        }
+        void SaveFile(int id)
+        {
+            string savePath = Server.MapPath("Upload//");
+            string fileName = id + Path.GetExtension(FileUpload1.FileName);
+            string pathToCheck = savePath + fileName;
+            string tempfileName = "";
+
+            if (System.IO.File.Exists(pathToCheck))
+            {
+                int counter = 2;
+                while (System.IO.File.Exists(pathToCheck))
+                {
+                    tempfileName = counter.ToString() + fileName;
+                    pathToCheck = savePath + tempfileName;
+                    counter++;
+                }
+
+            }
+           
+            savePath += fileName;
+            FileUpload1.SaveAs(savePath);
         }
     }
 }

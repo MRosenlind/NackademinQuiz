@@ -18,7 +18,9 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQuestion" ErrorMessage="*" ForeColor="#FF3300"></asp:RequiredFieldValidator>
         <br />
         <br />
+        <asp:FileUpload ID="FileUpload1" runat="server" />
       <br />
+        <br />
         <br />
         <asp:Button ID="btnQuestSubmit" runat="server" OnClick="btnQuestSubmit_Click" Text="Nästa" />
         <br />

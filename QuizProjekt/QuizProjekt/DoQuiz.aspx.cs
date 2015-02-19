@@ -24,43 +24,45 @@ namespace QuizProjekt
         {
             lblFinish.Visible = false;
             btnFinish.Visible = false;
-            
-            
-            
-            _testId = Request.QueryString["Id"].ToInt();
-            if(Request.QueryString["qId"] != null)
-                _questionId = Request.QueryString["qId"].ToInt();
-            else
-                _questionId = _service.GetNextQuestion(_testId);
 
+            var question = _service.GetNextQuestion(_testId, _questionId);
+            var previousquestion = _service.GetPreviousQuestion(_testId, _questionId);
+            _testId = Request.QueryString["Id"].ToInt();
             
             if (!Page.IsPostBack)
             {
-                
+                _questionId = Request.QueryString["qId"].ToInt();
+
                 if (_testId > 0)
                {
-                  var question = _service.GetNextQuestion(_testId, _questionId);
-                //  var answer = _aservice.Score(0);
+                   if (string.IsNullOrEmpty(Request.QueryString["direction"]))
+                   {
 
-                  if (question != null)
-                  {
-                      var alternatives = question.Alternatives.Where(x => x.Question.Id == _questionId);
-                      lblQuestion.Text = question.Text;
-                      RadioButtonList1.DataSource = alternatives;
-                      RadioButtonList1.DataBind();
 
-                      //btnPreviousQuestion.Visible = true;
-                  }
-                  else
-                  {
-                      lblFinish.Visible = true;
-                      btnFinish.Visible = true;
-                  }
+                       if (question != null)
+                       {
+                           var alternatives = question.Alternatives.Where(x => x.Question.Id == _questionId);
+                           lblQuestion.Text = question.Text;
+                           RadioButtonList1.DataSource = alternatives;
+                           RadioButtonList1.DataBind();
 
-                  //if (_questionId <=2)
-                  //    btnPreviousQuestion.Visible = false;
-                  
-               }
+                           ViewState["QuestionId"] = question.Id;
+
+                           //btnPreviousQuestion.Visible = true;
+                       }
+
+                       else
+                       {
+                           lblFinish.Visible = true;
+                           btnFinish.Visible = true;
+                       }
+
+                       //if (_questionId <=2)
+                       //    btnPreviousQuestion.Visible = false;
+
+                   }
+                   
+                }
             }
             
         }
@@ -68,12 +70,12 @@ namespace QuizProjekt
         protected void btnNextQuestion_Click(object sender, EventArgs e)
         {
             
-            Response.Redirect("DoQuiz.aspx?id=" + _testId + "&qId=" + (_questionId+1));
+            Response.Redirect("DoQuiz.aspx?id=" + _testId + "&qId=" + (ViewState["QuestionId"]));
         }
 
         protected void btnPreviousQuestion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("DoQuiz.aspx?id=" + _testId + "&qId=" + (_questionId - 1));
+            Response.Redirect("DoQuiz.aspx?direction=back&id=" + _testId + "&qId=" + (ViewState["QuestionId"]));
         }
 
         protected void btnFinish_Click(object sender, EventArgs e)

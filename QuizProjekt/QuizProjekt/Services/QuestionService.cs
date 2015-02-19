@@ -31,7 +31,7 @@ namespace QuizProjekt.Services
                 return
                     context.Questions.Include("Alternatives")
                         .OrderBy(x => x.Id)
-                        .FirstOrDefault(x => x.Test.Id == testId && x.Id == questionId);
+                        .FirstOrDefault(x => x.Test.Id == testId && x.Id > questionId);
 
             }
         }
@@ -54,9 +54,9 @@ namespace QuizProjekt.Services
             using (var context = new TestContext())
             {
                 return context.Questions
-                    .Where(x => x.Test.Id == testId && x.Id > questionId)
+                    .Where(x => x.Test.Id == testId && x.Id < questionId)
                     .OrderBy(x => x.Id)
-                    .FirstOrDefault();
+                    .LastOrDefault();
             }
         }
         public void SaveQuestion(Question question)

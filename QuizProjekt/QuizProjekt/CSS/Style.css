@@ -37,8 +37,7 @@
 }
 #doQuiz
 {
-  margin-left:40%;
-      margin-right:35%;
-  background-color: yellow;
+  width: 30%;
+  background-color: #F38630;
    
 }

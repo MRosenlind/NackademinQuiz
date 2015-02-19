@@ -15,6 +15,7 @@ namespace QuizProjekt.Models
 
         public virtual Test Test { get; set; }
 
+        public string Image { get; set; }
 
     }
 }

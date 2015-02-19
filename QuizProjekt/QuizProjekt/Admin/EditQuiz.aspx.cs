@@ -18,7 +18,6 @@ namespace QuizProjekt.Admin
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            //raden nedan var bortkommenterad....
             _quizId = Request.QueryString["Id"].ToInt();
 
             if (!Page.IsPostBack)
@@ -63,25 +62,7 @@ namespace QuizProjekt.Admin
 
             Response.Redirect("EditQuiz.aspx?id=" + _quizId);
         }
-        /// <summary>
-        /// Tog bort knappen
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //protected void btnSaveToQuestions_Click(object sender, EventArgs e)
-        //{
-        //    var test = new Test
-        //    {
-        //        Id = _quizId,
-        //        Name = txtName.Text,
-        //        Description = txtDescription.Text,
-        //        Public = checkBoxPublic.Checked
-        //    };
-
-        //    _service.SaveTest(test);
-
-        //    Response.Redirect("EditQuestion.aspx?id=" + _quizId);
-        //}
+      
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
