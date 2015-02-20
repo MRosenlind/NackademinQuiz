@@ -25,8 +25,6 @@ namespace QuizProjekt
             lblFinish.Visible = false;
             btnFinish.Visible = false;
 
-            var question = _service.GetNextQuestion(_testId, _questionId);
-            var previousquestion = _service.GetPreviousQuestion(_testId, _questionId);
             _testId = Request.QueryString["Id"].ToInt();
             
             if (!Page.IsPostBack)
@@ -35,9 +33,11 @@ namespace QuizProjekt
 
                 if (_testId > 0)
                {
+                   Question question;
                    if (string.IsNullOrEmpty(Request.QueryString["direction"]))
-                   {
-
+                       question = _service.GetNextQuestion(_testId, _questionId);
+                   else
+                       question = _service.GetPreviousQuestion(_testId, _questionId);
 
                        if (question != null)
                        {
@@ -60,7 +60,7 @@ namespace QuizProjekt
                        //if (_questionId <=2)
                        //    btnPreviousQuestion.Visible = false;
 
-                   }
+                   
                    
                 }
             }

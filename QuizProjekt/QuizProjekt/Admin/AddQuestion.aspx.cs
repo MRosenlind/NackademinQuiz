@@ -33,31 +33,18 @@ namespace QuizProjekt.Admin
                 question.Image = Path.GetExtension(FileUpload1.FileName);
             }
 
+            SaveFile(question.Id);
             QuizRepository.AddQuestion(question, i);
 
 
             Response.Redirect("AddAlternative.aspx?id=" + question.Id);
-            
+
         }
         void SaveFile(int id)
         {
-            string savePath = Server.MapPath("Upload//");
+            string savePath = Server.MapPath("/Upload/");
             string fileName = id + Path.GetExtension(FileUpload1.FileName);
-            string pathToCheck = savePath + fileName;
-            string tempfileName = "";
 
-            if (System.IO.File.Exists(pathToCheck))
-            {
-                int counter = 2;
-                while (System.IO.File.Exists(pathToCheck))
-                {
-                    tempfileName = counter.ToString() + fileName;
-                    pathToCheck = savePath + tempfileName;
-                    counter++;
-                }
-
-            }
-           
             savePath += fileName;
             FileUpload1.SaveAs(savePath);
         }
