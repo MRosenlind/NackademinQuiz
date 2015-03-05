@@ -102,7 +102,24 @@ namespace QuizProjekt.Services
             }
 
         }
+                public Dictionary<int, int> getAnswers()
+                {
+                    return HttpContext.Current.Session["Answers"] as Dictionary<int, int>;
+                }
 
+                public void SaveAnswer(int questionId, int alternativeId)
+                {
+                    // kolla om det redan finns en lista i session
+                    var answers = HttpContext.Current.Session["Answers"] as Dictionary<int, int>;
+                    // om inte, skapa en
+                    if (answers == null)
+                        answers = new Dictionary<int, int>();
+                    // lägg till svaret
+                    answers.Remove(questionId);
+                    answers.Add(questionId, alternativeId);
+                    // spara listan i session
+                    HttpContext.Current.Session["Answers"] = answers;
+                }
             
         
     }

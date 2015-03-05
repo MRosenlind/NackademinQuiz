@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuizProjekt.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace QuizProjekt
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Answers.DataSource = new QuestionService().getAnswers();
+            Answers.DataBind();
         }
 
         protected void btnStartpage_Click(object sender, EventArgs e)

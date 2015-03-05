@@ -73,8 +73,6 @@ namespace QuizProjekt
                        //if (_questionId <=2)
                        //    btnPreviousQuestion.Visible = false;
 
-                   
-                   
                 }
             }
             
@@ -82,17 +80,19 @@ namespace QuizProjekt
 
         protected void btnNextQuestion_Click(object sender, EventArgs e)
         {
+            _service.SaveAnswer((int)ViewState["QuestionId"], RadioButtonList1.SelectedValue.ToInt());
             Response.Redirect("DoQuiz.aspx?id=" + _testId + "&qId=" + (ViewState["QuestionId"]));
         }
 
         protected void btnPreviousQuestion_Click(object sender, EventArgs e)
         {
+            _service.SaveAnswer((int)ViewState["QuestionId"], RadioButtonList1.SelectedValue.ToInt());
             Response.Redirect("DoQuiz.aspx?direction=back&id=" + _testId + "&qId=" + (ViewState["QuestionId"]));
         }
 
         protected void btnFinish_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Finish.aspx");
+            Response.Redirect("Finish.aspx?id="+_testId);
         }
     }
 }

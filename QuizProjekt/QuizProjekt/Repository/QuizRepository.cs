@@ -15,8 +15,6 @@ namespace QuizProjekt.Repository
             {
                 return context.Tests.ToList(); 
             }
-            
-            
         }
         public static void AddQuiz(Test quiz)
         {
@@ -51,9 +49,10 @@ namespace QuizProjekt.Repository
             using (var context = new TestContext())
             {
                 return context.Tests.FirstOrDefault(x => x.Id == id);
-
             }
         }
+
+        
 
     }
 }
