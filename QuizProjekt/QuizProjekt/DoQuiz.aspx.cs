@@ -25,47 +25,36 @@ namespace QuizProjekt
             lblFinish.Visible = false;
             btnFinish.Visible = false;
 
-            _testId = Request.QueryString["Id"].ToInt();
-            
+            _questionId = Request.QueryString["qId"].ToInt();
+            _testId = Request.QueryString["id"].ToInt();
+            Image1.ImageUrl = "/Upload/" + _questionId + ".jpg";
+
             if (!Page.IsPostBack)
             {
-                _questionId = Request.QueryString["qId"].ToInt();
+
 
                 if (_testId > 0)
                {
                    Question question;
-                   if (_questionId == -1)
-                   {
-                       question = _service.GetLastQuestion(_testId);
-                   }
-                   else if (string.IsNullOrEmpty(Request.QueryString["direction"]))
+                   if (string.IsNullOrEmpty(Request.QueryString["direction"]))
                        question = _service.GetNextQuestion(_testId, _questionId);
                    else
                        question = _service.GetPreviousQuestion(_testId, _questionId);
 
                        if (question != null)
                        {
+                           var alternatives = question.Alternatives;
                            lblQuestion.Text = question.Text;
-                           RadioButtonList1.DataSource = question.Alternatives;
+                           RadioButtonList1.DataSource = alternatives;
                            RadioButtonList1.DataBind();
 
-                           if (Image1.ImageUrl == null)
-                           {
-                               Image1.Visible = false;
-                           }
-                           else
-                               Image1.ImageUrl = "/Upload/" + question.Id + question.Image;
                            ViewState["QuestionId"] = question.Id;
 
-                           if (_questionId == 0)
-                               btnPreviousQuestion.Visible = false;
-                           
+                           //btnPreviousQuestion.Visible = true;
                        }
 
                        else
                        {
-                           ViewState["QuestionId"] = -1;
-                           btnNextQuestion.Visible = false;
                            lblFinish.Visible = true;
                            btnFinish.Visible = true;
                        }
@@ -80,8 +69,11 @@ namespace QuizProjekt
             
         }
 
+
+
         protected void btnNextQuestion_Click(object sender, EventArgs e)
         {
+
             Response.Redirect("DoQuiz.aspx?id=" + _testId + "&qId=" + (ViewState["QuestionId"]));
         }
 
