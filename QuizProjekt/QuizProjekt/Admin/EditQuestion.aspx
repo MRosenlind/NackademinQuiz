@@ -7,12 +7,13 @@
         <asp:Label ID="Label1" runat="server" Text="Lägg till alternativ"></asp:Label>
         <br />
         <asp:TextBox ID="txtAlternative" runat="server"></asp:TextBox>
-    &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAlternative" ErrorMessage="*" ForeColor="Red" ValidationGroup="valTxt"></asp:RequiredFieldValidator>
+    &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAlternative" ErrorMessage="*" ForeColor="Red" ValidationGroup="Alternativ"></asp:RequiredFieldValidator>
     </p>
     <p>
         <asp:CheckBox ID="chechBoxRight" runat="server" Text="Rätt svar" />
     </p>
     <p>
+        <asp:Button ID="btnSaveToStart" runat="server" OnClick="btnSaveToStart_Click" Text="Lägg till alternativ" ValidationGroup="Alternativ" />
     <br />
         <br />
     
@@ -45,12 +46,14 @@
                 <asp:Parameter Name="original_Id" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
-    
+            <asp:FileUpload ID="FileUpload1" runat="server" />
+        
+        &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="FileUpload1" ErrorMessage="*" ForeColor="Red" ValidationGroup="image"></asp:RequiredFieldValidator>
+&nbsp;&nbsp;
+        <asp:Button ID="SaveImageBtn" runat="server" OnClick="SaveImageBtn_Click" Text="Spara bild" ValidationGroup="image" />
         
         <br />
         <br />
-        <asp:Button ID="btnSaveToStart" runat="server" OnClick="btnSaveToStart_Click" Text="Spara" ValidationGroup="valTxt" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnStartsida" runat="server" OnClick="btnStartsida_Click" Text="Startsidan" />
         <br />
     </p>

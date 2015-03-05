@@ -25,11 +25,13 @@ namespace QuizProjekt
             lblFinish.Visible = false;
             btnFinish.Visible = false;
 
-            _testId = Request.QueryString["Id"].ToInt();
-            
+            _questionId = Request.QueryString["qId"].ToInt();
+            _testId = Request.QueryString["id"].ToInt();
+            Image1.ImageUrl = "/Upload/" + _questionId + ".jpg";
+
             if (!Page.IsPostBack)
             {
-                _questionId = Request.QueryString["qId"].ToInt();
+
 
                 if (_testId > 0)
                {
@@ -41,7 +43,7 @@ namespace QuizProjekt
 
                        if (question != null)
                        {
-                           var alternatives = question.Alternatives.Where(x => x.Question.Id == _questionId);
+                           var alternatives = question.Alternatives;
                            lblQuestion.Text = question.Text;
                            RadioButtonList1.DataSource = alternatives;
                            RadioButtonList1.DataBind();
@@ -67,9 +69,11 @@ namespace QuizProjekt
             
         }
 
+
+
         protected void btnNextQuestion_Click(object sender, EventArgs e)
         {
-            
+
             Response.Redirect("DoQuiz.aspx?id=" + _testId + "&qId=" + (ViewState["QuestionId"]));
         }
 
