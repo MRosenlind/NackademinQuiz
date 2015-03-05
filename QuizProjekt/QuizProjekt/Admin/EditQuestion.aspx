@@ -13,6 +13,7 @@
         <asp:CheckBox ID="chechBoxRight" runat="server" Text="Rätt svar" />
     </p>
     <p>
+        <asp:FileUpload ID="FileUpload1" runat="server" />
     <br />
         <br />
     
@@ -50,7 +51,8 @@
         <br />
         <br />
         <asp:Button ID="btnSaveToStart" runat="server" OnClick="btnSaveToStart_Click" Text="Spara" ValidationGroup="valTxt" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnUploadImage" runat="server" OnClick="btnUploadImage_Click" Text="Ladda upp bild" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnStartsida" runat="server" OnClick="btnStartsida_Click" Text="Startsidan" />
         <br />
     </p>

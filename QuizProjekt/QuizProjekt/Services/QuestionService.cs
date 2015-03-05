@@ -53,11 +53,20 @@ namespace QuizProjekt.Services
         {
             using (var context = new TestContext())
             {
-                /// HÄR BUGGARE UR
-                return context.Questions
+                return context.Questions.Include("Alternatives")
                     .Where(x => x.Test.Id == testId && x.Id < questionId)
-                    .OrderBy(x => x.Id)
-                    .LastOrDefault();
+                    .OrderByDescending(x => x.Id)
+                    .FirstOrDefault();
+            }
+        }
+        public Question GetLastQuestion(int testId)
+        {
+            using (var context = new TestContext())
+            {
+                return context.Questions.Include("Alternatives")
+                    .Where(x => x.Test.Id == testId)
+                    .OrderByDescending(x => x.Id)
+                    .FirstOrDefault();
             }
         }
         public void SaveQuestion(Question question)

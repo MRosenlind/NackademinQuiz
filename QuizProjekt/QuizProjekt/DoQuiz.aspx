@@ -14,6 +14,10 @@
         <br />
         <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataTextField="Text" DataValueField="Id">
         </asp:RadioButtonList>
+            <br />
+
+            <asp:Image ID="Image1" runat="server" Height="74px" Width="115px" />
+
         <br />
         <br />
         <asp:Button ID="btnNextQuestion" runat="server" OnClick="btnNextQuestion_Click" Text="Nästa fråga" />

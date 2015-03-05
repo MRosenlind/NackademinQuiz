@@ -34,25 +34,38 @@ namespace QuizProjekt
                 if (_testId > 0)
                {
                    Question question;
-                   if (string.IsNullOrEmpty(Request.QueryString["direction"]))
+                   if (_questionId == -1)
+                   {
+                       question = _service.GetLastQuestion(_testId);
+                   }
+                   else if (string.IsNullOrEmpty(Request.QueryString["direction"]))
                        question = _service.GetNextQuestion(_testId, _questionId);
                    else
                        question = _service.GetPreviousQuestion(_testId, _questionId);
 
                        if (question != null)
                        {
-                           var alternatives = question.Alternatives.Where(x => x.Question.Id == _questionId);
                            lblQuestion.Text = question.Text;
-                           RadioButtonList1.DataSource = alternatives;
+                           RadioButtonList1.DataSource = question.Alternatives;
                            RadioButtonList1.DataBind();
 
+                           if (Image1.ImageUrl == null)
+                           {
+                               Image1.Visible = false;
+                           }
+                           else
+                               Image1.ImageUrl = "/Upload/" + question.Id + question.Image;
                            ViewState["QuestionId"] = question.Id;
 
-                           //btnPreviousQuestion.Visible = true;
+                           if (_questionId == 0)
+                               btnPreviousQuestion.Visible = false;
+                           
                        }
 
                        else
                        {
+                           ViewState["QuestionId"] = -1;
+                           btnNextQuestion.Visible = false;
                            lblFinish.Visible = true;
                            btnFinish.Visible = true;
                        }
@@ -69,7 +82,6 @@ namespace QuizProjekt
 
         protected void btnNextQuestion_Click(object sender, EventArgs e)
         {
-            
             Response.Redirect("DoQuiz.aspx?id=" + _testId + "&qId=" + (ViewState["QuestionId"]));
         }
 

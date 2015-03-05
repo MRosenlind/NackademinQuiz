@@ -38,5 +38,6 @@ namespace QuizProjekt.Admin
         {
             Response.Redirect("~/Default.aspx");
         }
+
     }
 }

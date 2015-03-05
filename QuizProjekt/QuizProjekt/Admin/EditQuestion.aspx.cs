@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using QuizProjekt.Models;
 using QuizProjekt.Repository;
 using QuizProjekt.Services;
+using System.IO;
 
 namespace QuizProjekt.Admin
 {
@@ -41,13 +42,37 @@ namespace QuizProjekt.Admin
   
             };
             _service.SaveAlternative(alternative,_questionId);
-
+            
             Response.Redirect("EditQuestion.aspx?id="+ _questionId);
         }
+        
 
         protected void btnStartsida_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
+        }
+
+        protected void btnUploadImage_Click(object sender, EventArgs e)
+        {
+            var qId = Request.QueryString["Id"];
+            var i = 0;
+            int.TryParse(qId, out i);
+            var question = new Question();
+            question.Id = i;
+            if (FileUpload1.HasFile)
+            {
+                question.Image = Path.GetExtension(FileUpload1.FileName);
+            }
+
+            SaveFile(question.Id);
+        }
+        void SaveFile(int id)
+        {
+            string savePath = Server.MapPath("/Upload/");
+            string fileName = id + Path.GetExtension(FileUpload1.FileName);
+
+            savePath += fileName;
+            FileUpload1.SaveAs(savePath);
         }
 
         

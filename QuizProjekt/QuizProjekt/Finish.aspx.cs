@@ -13,5 +13,10 @@ namespace QuizProjekt
         {
 
         }
+
+        protected void btnStartpage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }

@@ -16,8 +16,6 @@ namespace QuizProjekt.Admin
         {
 
         }
-
-
         protected void btnQuestSubmit_Click(object sender, EventArgs e)
         {
             var qId = Request.QueryString["Id"];
@@ -26,27 +24,12 @@ namespace QuizProjekt.Admin
 
             int.TryParse(qId, out i);
             var question = new Question();
+            question.Id = i;
             question.Text = txtQuestion.Text;
 
-            if (FileUpload1.HasFile)
-            {
-                question.Image = Path.GetExtension(FileUpload1.FileName);
-            }
-
-            SaveFile(question.Id);
             QuizRepository.AddQuestion(question, i);
 
-
             Response.Redirect("AddAlternative.aspx?id=" + question.Id);
-
-        }
-        void SaveFile(int id)
-        {
-            string savePath = Server.MapPath("/Upload/");
-            string fileName = id + Path.GetExtension(FileUpload1.FileName);
-
-            savePath += fileName;
-            FileUpload1.SaveAs(savePath);
         }
     }
 }

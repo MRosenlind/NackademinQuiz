@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using QuizProjekt.Services;
 using QuizProjekt.Models;
 using QuizProjekt.Repository;
+using System.IO;
 
 namespace QuizProjekt.Admin
 {
@@ -55,15 +56,12 @@ namespace QuizProjekt.Admin
             int.TryParse(qId, out i);
             var question = new Question();
             question.Text = txtQuestion.Text;
-
+            
             QuizRepository.AddQuestion(question, i);
-
-
 
             Response.Redirect("EditQuiz.aspx?id=" + _quizId);
         }
-      
-
+        
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             _service.Delete(_quizId);
