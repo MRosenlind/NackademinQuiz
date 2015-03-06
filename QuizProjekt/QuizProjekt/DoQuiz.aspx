@@ -11,6 +11,7 @@
         <asp:Label ID="lblQuestion" runat="server"></asp:Label>
         <asp:Label ID="lblFinish" runat="server" Text="Du har nu svarat på alla frågor. &lt;br/&gt;Klicka på avsluta för att se ditt resultat!"></asp:Label>
         <br />
+            <asp:Image ID="Image1" runat="server" Height="215px" Width="320px" />
         <br />
         <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataTextField="Text" DataValueField="Id">
         </asp:RadioButtonList>

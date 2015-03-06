@@ -53,18 +53,8 @@ namespace QuizProjekt.Services
         {
             using (var context = new TestContext())
             {
-                return context.Questions.Include("Alternatives")
+                return context.Questions
                     .Where(x => x.Test.Id == testId && x.Id < questionId)
-                    .OrderByDescending(x => x.Id)
-                    .FirstOrDefault();
-            }
-        }
-        public Question GetLastQuestion(int testId)
-        {
-            using (var context = new TestContext())
-            {
-                return context.Questions.Include("Alternatives")
-                    .Where(x => x.Test.Id == testId)
                     .OrderByDescending(x => x.Id)
                     .FirstOrDefault();
             }
