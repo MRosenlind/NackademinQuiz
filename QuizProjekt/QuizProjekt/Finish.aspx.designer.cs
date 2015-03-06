@@ -22,6 +22,15 @@ namespace QuizProjekt {
         protected global::System.Web.UI.WebControls.Repeater Answers;
         
         /// <summary>
+        /// lblScore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblScore;
+        
+        /// <summary>
         /// btnStartpage control.
         /// </summary>
         /// <remarks>

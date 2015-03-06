@@ -15,6 +15,8 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
+    <asp:Label ID="lblScore" runat="server"></asp:Label>
+    <br />
     <br />
         <asp:Button ID="btnStartpage" runat="server" OnClick="btnStartpage_Click" Text="Startsida" />
         <br />

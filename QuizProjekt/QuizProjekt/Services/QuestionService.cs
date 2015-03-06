@@ -88,16 +88,12 @@ namespace QuizProjekt.Services
                 context.SaveChanges();
             }
         }
-        //public Question GetQuestions(int id)
-        //{
-        //    using (var context = new TestContext())
-        //    {
-        //        //return context.Questions.Where(x=>x.Id == id)
+        
                 public List<Question> GetQuestions(int quizId)
         {
             using (var context = new TestContext())
             {
-                return context.Questions.Where(x => x.Test.Id == quizId).ToList();
+                return context.Questions.Include("Alternatives").Where(x => x.Test.Id == quizId).ToList();
 
             }
 
