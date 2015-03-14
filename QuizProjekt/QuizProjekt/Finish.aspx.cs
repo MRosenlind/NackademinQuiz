@@ -23,6 +23,9 @@ namespace QuizProjekt
             foreach (var answer in answers)
             {
                var alt = questions.SelectMany(x => x.Alternatives).FirstOrDefault(x => x.Id == answer.Value);
+               var corAlt
+               var question
+                
                 if (alt != null && alt.Correct)
                 {
                     points++;

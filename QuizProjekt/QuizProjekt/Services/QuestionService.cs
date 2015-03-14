@@ -83,6 +83,7 @@ namespace QuizProjekt.Services
                     if (q != null)
                     {
                         q.Text = question.Text;
+                        q.Image = question.Image;
                     }
                 }
                 context.SaveChanges();

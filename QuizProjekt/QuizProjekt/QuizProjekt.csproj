@@ -73,6 +73,19 @@
     <Content Include="Finish.aspx" />
     <Content Include="Global.asax" />
     <Content Include="DoQuiz.aspx" />
+    <Content Include="Upload\0.jpg" />
+    <Content Include="Upload\0.png" />
+    <Content Include="Upload\13.jpg" />
+    <Content Include="Upload\15.jpg" />
+    <Content Include="Upload\16.png" />
+    <Content Include="Upload\17.png" />
+    <Content Include="Upload\18.png" />
+    <Content Include="Upload\19.jpg" />
+    <Content Include="Upload\20.jpg" />
+    <Content Include="Upload\21.jpg" />
+    <Content Include="Upload\22.jpg" />
+    <Content Include="Upload\27.jpg" />
+    <Content Include="Upload\3.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +170,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Site.Master" />
+    <Content Include="Upload\0" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

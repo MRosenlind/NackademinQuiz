@@ -49,6 +49,15 @@ namespace QuizProjekt
                            RadioButtonList1.DataSource = question.Alternatives;
                            RadioButtonList1.DataBind();
 
+
+                           // plocka fram ev. svar, sätt SelectedValue till det svaret
+                           if (Session["Answers"] != null)
+                           {
+                               var values = (Dictionary<int, int>)Session["Answers"];
+                               if(values.ContainsKey(question.Id))
+                                 RadioButtonList1.SelectedValue = values[question.Id].ToString();
+                           }
+
                            if (Image1.ImageUrl == null)
                            {
                                Image1.Visible = false;

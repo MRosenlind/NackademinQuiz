@@ -15,6 +15,8 @@ namespace QuizProjekt.Admin
     {
         private int _questionId;
         private AlternativeService _service = new AlternativeService();
+
+        private QuestionService _serive2 = new QuestionService();
         protected void Page_Load(object sender, EventArgs e)
         {
             _questionId = Request.QueryString["Id"].ToInt();
@@ -65,6 +67,7 @@ namespace QuizProjekt.Admin
             }
 
             SaveFile(question.Id);
+            _serive2.SaveQuestion(question);
         }
         void SaveFile(int id)
         {
